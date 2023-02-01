@@ -2,6 +2,7 @@ import 'package:flip/components/common/CustomButton.dart';
 import 'package:flip/components/common/CustomTextField.dart';
 import 'package:flip/constants/global_variables.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 
 enum Auth { signin, signup }
 
@@ -32,6 +33,13 @@ class _AuthScreenState extends State<AuthScreen> {
   }
 
   @override
+  void initState() {
+    // TODO: implement initState
+    super.initState();
+    SystemChrome.setSystemUIOverlayStyle(SystemUiOverlayStyle.light);
+  }
+
+  @override
   Widget build(BuildContext context) {
     return Scaffold(
       body: SafeArea(
@@ -41,7 +49,7 @@ class _AuthScreenState extends State<AuthScreen> {
           children: [
             const SizedBox(height: 40),
             const Text(
-              'Welcome 🍃',
+              'Welcome',
               style: TextStyle(
                 fontSize: 22,
                 fontWeight: FontWeight.w700,
@@ -66,32 +74,37 @@ class _AuthScreenState extends State<AuthScreen> {
                 },
               ),
             ),
-            Visibility(
-                visible: _auth == Auth.signup,
-                child: Container(
-                  padding: const EdgeInsets.only(left: 14, right: 14),
-                  child: Form(
-                    key: _signUpFormKey,
-                    child: Column(children: [
-                      CustomTextField(
-                        placeHolder: 'Name',
-                        controller: _nameController,
-                      ),
-                      const SizedBox(height: 10),
-                      CustomTextField(
-                        placeHolder: 'Email',
-                        controller: _emailController,
-                      ),
-                      const SizedBox(height: 10),
-                      CustomTextField(
-                        placeHolder: 'Password',
-                        controller: _passwordController,
-                      ),
-                      const SizedBox(height: 10),
-                      CustomButton(text: 'Sign up', onTap: () {})
-                    ]),
-                  ),
-                )),
+            AnimatedOpacity(
+              opacity: _auth == Auth.signup ? 1 : 0,
+              curve: Curves.easeInOut,
+              duration: const Duration(milliseconds: 600),
+              child: Visibility(
+                  visible: _auth == Auth.signup,
+                  child: Container(
+                    padding: const EdgeInsets.only(left: 14, right: 14),
+                    child: Form(
+                      key: _signUpFormKey,
+                      child: Column(children: [
+                        CustomTextField(
+                          placeHolder: 'Name',
+                          controller: _nameController,
+                        ),
+                        const SizedBox(height: 10),
+                        CustomTextField(
+                          placeHolder: 'Email',
+                          controller: _emailController,
+                        ),
+                        const SizedBox(height: 10),
+                        CustomTextField(
+                          placeHolder: 'Password',
+                          controller: _passwordController,
+                        ),
+                        const SizedBox(height: 10),
+                        CustomButton(text: 'Sign up', onTap: () {})
+                      ]),
+                    ),
+                  )),
+            ),
             ListTile(
               title: const Text(
                 "Login",
@@ -110,28 +123,33 @@ class _AuthScreenState extends State<AuthScreen> {
                 },
               ),
             ),
-            Visibility(
-                visible: _auth == Auth.signin,
-                child: Container(
-                  padding: const EdgeInsets.only(left: 14, right: 14),
-                  child: Form(
-                    key: _signUpFormKey,
-                    child: Column(children: [
-                      const SizedBox(height: 10),
-                      CustomTextField(
-                        placeHolder: 'Email',
-                        controller: _emailController,
-                      ),
-                      const SizedBox(height: 10),
-                      CustomTextField(
-                        placeHolder: 'Password',
-                        controller: _passwordController,
-                      ),
-                      const SizedBox(height: 10),
-                      CustomButton(text: 'Sign In', onTap: () {})
-                    ]),
-                  ),
-                )),
+            AnimatedOpacity(
+              opacity: _auth == Auth.signin ? 1 : 0,
+              curve: Curves.easeInOut,
+              duration: const Duration(milliseconds: 600),
+              child: Visibility(
+                  visible: _auth == Auth.signin,
+                  child: Container(
+                    padding: const EdgeInsets.only(left: 14, right: 14),
+                    child: Form(
+                      key: _signInFormKey,
+                      child: Column(children: [
+                        const SizedBox(height: 10),
+                        CustomTextField(
+                          placeHolder: 'Email',
+                          controller: _emailController,
+                        ),
+                        const SizedBox(height: 10),
+                        CustomTextField(
+                          placeHolder: 'Password',
+                          controller: _passwordController,
+                        ),
+                        const SizedBox(height: 10),
+                        CustomButton(text: 'Sign In', onTap: () {})
+                      ]),
+                    ),
+                  )),
+            ),
           ],
         ),
       )),
