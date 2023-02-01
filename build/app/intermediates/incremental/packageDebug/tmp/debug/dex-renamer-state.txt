@@ -1,4 +1,4 @@
-#Wed Feb 01 15:08:39 IST 2023
-base.0=/Users/gurukishore/Projects/Flutter/Flip/frontend/build/app/intermediates/dex/debug/mergeDexDebug/classes.dex
+#Wed Feb 01 16:33:23 IST 2023
+base.0=/Users/gurukishore/Projects/Flutter/Flip/build/app/intermediates/dex/debug/mergeDexDebug/classes.dex
 renamed.0=classes.dex
 path.0=classes.dex

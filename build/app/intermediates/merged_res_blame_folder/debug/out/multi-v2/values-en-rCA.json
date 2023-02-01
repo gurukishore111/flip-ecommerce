@@ -1,7 +1,7 @@
 {
     "logs": [
         {
-            "outputFile": "/Users/gurukishore/Projects/Flutter/Flip/frontend/build/app/intermediates/incremental/mergeDebugResources/merged.dir/values-en-rCA/values-en-rCA.xml",
+            "outputFile": "/Users/gurukishore/Projects/Flutter/Flip/build/app/intermediates/incremental/mergeDebugResources/merged.dir/values-en-rCA/values-en-rCA.xml",
             "map": [
                 {
                     "source": "/Users/gurukishore/.gradle/caches/transforms-3/acbce933e4b464a5224ed377a62db1f5/transformed/core-1.6.0/res/values-en-rCA/values-en-rCA.xml",
