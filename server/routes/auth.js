@@ -1,5 +1,6 @@
 const express = require('express');
 const { User } = require('../models/user');
+const generateToken = require('../utils/generateToken');
 const authRouter = express.Router();
 
 authRouter.post('/signup', async (req, res) => {
@@ -9,7 +10,7 @@ authRouter.post('/signup', async (req, res) => {
     if (existingUser) {
       return res
         .status(400)
-        .json({ error: 'User with same email already exists!' });
+        .json({ msg: 'User with same email already exists!' });
     }
     let user = new User({
       email,
@@ -19,7 +20,28 @@ authRouter.post('/signup', async (req, res) => {
     user = await user.save();
     res.json(user);
   } catch (error) {
-    res.status(400).json({
+    res.status(500).json({
+      error: error?.message
+        ? error.message
+        : 'Something went wrong while creating the account',
+    });
+  }
+});
+
+authRouter.post('/signin', async (req, res) => {
+  try {
+    const { email, password } = req.body;
+    const user = await User.findOne({ email });
+    if (user && (await user.matchPassword(password))) {
+      res.json({
+        ...user._doc,
+        token: generateToken(user._id),
+      });
+    } else {
+      res.status(400).json({ msg: 'Invalid email or password' });
+    }
+  } catch (error) {
+    res.status(500).json({
       error: error?.message
         ? error.message
         : 'Something went wrong while creating the account',

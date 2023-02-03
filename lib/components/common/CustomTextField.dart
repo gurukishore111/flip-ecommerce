@@ -20,7 +20,12 @@ class CustomTextField extends StatelessWidget {
               borderSide: BorderSide(
             color: Colors.grey.shade500,
           ))),
-      // validator: () {},
+      validator: (val) {
+        if (val == null || val.isEmpty) {
+          return 'Enter your $placeHolder';
+        }
+        return null;
+      },
     );
   }
 }

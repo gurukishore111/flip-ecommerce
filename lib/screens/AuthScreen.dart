@@ -1,6 +1,7 @@
 import 'package:flip/components/common/CustomButton.dart';
 import 'package:flip/components/common/CustomTextField.dart';
 import 'package:flip/constants/global_variables.dart';
+import 'package:flip/services/auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
@@ -16,6 +17,7 @@ class AuthScreen extends StatefulWidget {
 
 class _AuthScreenState extends State<AuthScreen> {
   Auth _auth = Auth.signup;
+  final AuthService authService = AuthService();
 
   final _signUpFormKey = GlobalKey<FormState>();
   final _signInFormKey = GlobalKey<FormState>();
@@ -37,6 +39,23 @@ class _AuthScreenState extends State<AuthScreen> {
     // TODO: implement initState
     super.initState();
     SystemChrome.setSystemUIOverlayStyle(SystemUiOverlayStyle.light);
+  }
+
+  void signUpUser() {
+    authService.signUpUser(
+      context: context,
+      email: _emailController.text,
+      password: _passwordController.text,
+      name: _nameController.text,
+    );
+  }
+
+  void signInUser() {
+    authService.signInUser(
+      context: context,
+      email: _emailController.text,
+      password: _passwordController.text,
+    );
   }
 
   @override
@@ -100,7 +119,13 @@ class _AuthScreenState extends State<AuthScreen> {
                           controller: _passwordController,
                         ),
                         const SizedBox(height: 10),
-                        CustomButton(text: 'Sign up', onTap: () {})
+                        CustomButton(
+                            text: 'Sign up',
+                            onTap: () {
+                              if (_signUpFormKey.currentState!.validate()) {
+                                signUpUser();
+                              }
+                            })
                       ]),
                     ),
                   )),
@@ -145,7 +170,13 @@ class _AuthScreenState extends State<AuthScreen> {
                           controller: _passwordController,
                         ),
                         const SizedBox(height: 10),
-                        CustomButton(text: 'Sign In', onTap: () {})
+                        CustomButton(
+                            text: 'Sign In',
+                            onTap: () {
+                              if (_signInFormKey.currentState!.validate()) {
+                                signInUser();
+                              }
+                            })
                       ]),
                     ),
                   )),
