@@ -1,5 +1,6 @@
 import 'package:badges/badges.dart';
 import 'package:flip/constants/global_variables.dart';
+import 'package:flip/screens/AccountScreen.dart';
 import 'package:flip/screens/HomeScreen.dart';
 import 'package:flutter/material.dart';
 
@@ -18,7 +19,7 @@ class _BottomNavState extends State<BottomNav> {
 
   List<Widget> pages = [
     const HomeScreen(),
-    const Center(child: Text('Profile')),
+    const AccountScreen(),
     const Center(child: Text('Cart')),
   ];
 
