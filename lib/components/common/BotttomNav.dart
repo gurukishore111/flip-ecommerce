@@ -38,6 +38,7 @@ class _BottomNavState extends State<BottomNav> {
         currentIndex: _page,
         selectedItemColor: GlobalVariables.selectedNavBarColor,
         unselectedItemColor: GlobalVariables.unselectedNavBarColor.shade600,
+        selectedFontSize: 1.0,
         iconSize: 30,
         backgroundColor: Colors.black26,
         items: [
