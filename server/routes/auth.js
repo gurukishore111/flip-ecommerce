@@ -1,6 +1,7 @@
 const express = require('express');
+const { auth } = require('../middleware/auth');
 const { User } = require('../models/user');
-const generateToken = require('../utils/generateToken');
+const { generateToken, verifyToken } = require('../utils/generateToken');
 const authRouter = express.Router();
 
 authRouter.post('/signup', async (req, res) => {
@@ -40,6 +41,38 @@ authRouter.post('/signin', async (req, res) => {
     } else {
       res.status(400).json({ msg: 'Invalid email or password' });
     }
+  } catch (error) {
+    res.status(500).json({
+      error: error?.message
+        ? error.message
+        : 'Something went wrong while creating the account',
+    });
+  }
+});
+
+authRouter.post('/token', async (req, res) => {
+  try {
+    const token = req.header('x-auth-token');
+    if (!token) return res.json(false);
+    const verified = verifyToken(token);
+    if (!verified) return res.json(false);
+    const user = await User.findById(verified.id);
+    if (!user) return res.json(false);
+    res.json(true);
+  } catch (error) {
+    res.status(500).json({
+      error: error?.message
+        ? error.message
+        : 'Something went wrong while creating the account',
+    });
+  }
+});
+
+authRouter.get('/', auth, async (req, res) => {
+  try {
+    const user = await User.findById(req.user);
+    console.log(user);
+    res.json({ ...user._doc, token: req.token });
   } catch (error) {
     res.status(500).json({
       error: error?.message
