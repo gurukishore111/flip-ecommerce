@@ -27,7 +27,7 @@ class AccountScreen extends StatelessWidget {
               child: Row(
                 children: [
                   Text(
-                    'Flip',
+                    'FLIP.ECOM',
                     style: TextStyle(
                         color: GlobalVariables.secondaryColor,
                         fontSize: 24,
@@ -40,6 +40,13 @@ class AccountScreen extends StatelessWidget {
               // padding: const EdgeInsets.only(left: 15, right: 15),
               child: Row(
                 children: const [
+                  Padding(
+                    padding: EdgeInsets.only(right: 20),
+                    child: Icon(
+                      Icons.notifications_outlined,
+                      size: 28,
+                    ),
+                  ),
                   Padding(
                     padding: EdgeInsets.only(right: 1),
                     child: Icon(

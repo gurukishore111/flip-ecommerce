@@ -38,7 +38,7 @@ class _BottomNavState extends State<BottomNav> {
         onTap: updatePage,
         currentIndex: _page,
         selectedItemColor: GlobalVariables.selectedNavBarColor,
-        unselectedItemColor: GlobalVariables.unselectedNavBarColor.shade600,
+        unselectedItemColor: GlobalVariables.unselectedNavBarColor,
         selectedFontSize: 1.0,
         iconSize: 30,
         backgroundColor: Colors.black26,
@@ -56,7 +56,7 @@ class _BottomNavState extends State<BottomNav> {
                       : GlobalVariables.backgroundColor,
                 ),
               )),
-              child: const Icon(Icons.home_outlined),
+              child: const Icon(Icons.home_rounded),
             ),
           ),
           BottomNavigationBarItem(
@@ -71,7 +71,7 @@ class _BottomNavState extends State<BottomNav> {
                     ? GlobalVariables.selectedNavBarColor
                     : GlobalVariables.backgroundColor,
               ))),
-              child: const Icon(Icons.person_outline),
+              child: const Icon(Icons.person_rounded),
             ),
           ),
           BottomNavigationBarItem(
@@ -96,7 +96,7 @@ class _BottomNavState extends State<BottomNav> {
                     ),
                   ),
                   badgeColor: Colors.grey.shade800,
-                  child: const Icon(Icons.shopping_cart_outlined)),
+                  child: const Icon(Icons.shopping_cart_rounded)),
             ),
           )
         ],

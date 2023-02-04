@@ -4,7 +4,7 @@ import 'package:google_fonts/google_fonts.dart';
 
 var appTheme = ThemeData(
   colorScheme: const ColorScheme.dark(primary: GlobalVariables.secondaryColor),
-  appBarTheme: const AppBarTheme(
+  appBarTheme: AppBarTheme(
     elevation: 0,
     iconTheme: IconThemeData(
       color: GlobalVariables.iconColor,

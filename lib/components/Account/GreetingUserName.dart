@@ -12,10 +12,14 @@ class GreetingUserName extends StatelessWidget {
     final user = Provider.of<UserProvider>(context).user;
 
     return Container(
-      decoration: const BoxDecoration(
-        gradient: GlobalVariables.appBarGradient,
+      // decoration: const BoxDecoration(
+      //   gradient: GlobalVariables.appBarGradient,
+      // ),
+      padding: const EdgeInsets.only(
+        left: 15,
+        top: 15,
+        // right: 5, bottom: 15
       ),
-      padding: const EdgeInsets.only(left: 15, top: 5, right: 5, bottom: 15),
       child: Row(
         children: [
           const Text(
