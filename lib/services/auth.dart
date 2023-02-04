@@ -1,5 +1,6 @@
 import 'dart:convert';
 
+import 'package:flip/components/common/BotttomNav.dart';
 import 'package:flip/components/common/SnackBar.dart';
 import 'package:flip/constants/global_variables.dart';
 import 'package:flip/helpers/error_handing.dart';
@@ -73,7 +74,7 @@ class AuthService {
           await prefs.setString('x-auth-token', jsonDecode(res.body)['token']);
           Navigator.pushNamedAndRemoveUntil(
             context,
-            HomeScreen.routeName,
+            BottomNav.routeName,
             (route) => false,
           );
         },

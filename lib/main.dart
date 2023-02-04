@@ -1,3 +1,4 @@
+import 'package:flip/components/common/BotttomNav.dart';
 import 'package:flip/constants/theme.dart';
 import 'package:flip/providers/user.dart';
 import 'package:flip/routers/index.dart';
@@ -42,7 +43,7 @@ class _MyAppState extends State<MyApp> {
       theme: appTheme,
       onGenerateRoute: ((settings) => generateRoute(settings)),
       home: Provider.of<UserProvider>(context).user.token.isNotEmpty
-          ? const HomeScreen()
+          ? const BottomNav()
           : const AuthScreen(),
     );
   }

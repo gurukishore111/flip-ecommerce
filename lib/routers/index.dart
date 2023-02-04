@@ -1,3 +1,4 @@
+import 'package:flip/components/common/BotttomNav.dart';
 import 'package:flip/screens/AuthScreen.dart';
 import 'package:flip/screens/HomeScreen.dart';
 import 'package:flip/screens/NotFound.dart';
@@ -12,6 +13,10 @@ Route<dynamic> generateRoute(RouteSettings routeSettings) {
     case HomeScreen.routeName:
       return MaterialPageRoute(
         builder: (_) => const HomeScreen(),
+      );
+    case BottomNav.routeName:
+      return MaterialPageRoute(
+        builder: (_) => const BottomNav(),
       );
     default:
       return MaterialPageRoute(
