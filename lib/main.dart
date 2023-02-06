@@ -1,3 +1,4 @@
+import 'package:flip/components/common/AdminBotttomNav.dart';
 import 'package:flip/components/common/BotttomNav.dart';
 import 'package:flip/constants/theme.dart';
 import 'package:flip/providers/user.dart';
@@ -43,7 +44,9 @@ class _MyAppState extends State<MyApp> {
       theme: appTheme,
       onGenerateRoute: ((settings) => generateRoute(settings)),
       home: Provider.of<UserProvider>(context).user.token.isNotEmpty
-          ? const BottomNav()
+          ? Provider.of<UserProvider>(context).user.type == "user"
+              ? const BottomNav()
+              : const AdminBottomNav()
           : const AuthScreen(),
     );
   }
