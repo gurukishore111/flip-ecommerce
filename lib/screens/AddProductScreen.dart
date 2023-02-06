@@ -33,7 +33,7 @@ class _AddProductScreenState extends State<AddProductScreen> {
   bool _isLoading = false;
   List<String> productCategories = [
     'Mobiles',
-    "Essentails",
+    "Essentials",
     "Appliances",
     "Books",
     "Fashion"
