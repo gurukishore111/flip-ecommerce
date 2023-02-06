@@ -1,5 +1,5 @@
-import 'package:flip/components/common/CustomButton.dart';
-import 'package:flip/components/common/CustomTextField.dart';
+import 'package:flip/components/Common/CustomButton.dart';
+import 'package:flip/components/Common/CustomTextField.dart';
 import 'package:flip/constants/global_variables.dart';
 import 'package:flip/services/auth.dart';
 import 'package:flutter/material.dart';

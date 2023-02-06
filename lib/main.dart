@@ -1,10 +1,9 @@
-import 'package:flip/components/common/AdminBotttomNav.dart';
-import 'package:flip/components/common/BotttomNav.dart';
+import 'package:flip/components/Common/AdminBotttomNav.dart';
+import 'package:flip/components/Common/BotttomNav.dart';
 import 'package:flip/constants/theme.dart';
 import 'package:flip/providers/user.dart';
 import 'package:flip/routers/index.dart';
 import 'package:flip/screens/AuthScreen.dart';
-import 'package:flip/screens/HomeScreen.dart';
 import 'package:flip/services/auth.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';

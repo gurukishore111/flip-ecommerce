@@ -11,7 +11,7 @@ Future<List<File>> pickImages() async {
       allowMultiple: true,
     );
     if (files != null && files.files.isNotEmpty) {
-      for (var i = 0; i < files.files.length; i++) {
+      for (int i = 0; i < files.files.length; i++) {
         image.add(File(files.files[i].path!));
       }
     }

@@ -1,4 +1,4 @@
-import 'package:flip/components/common/Product.dart';
+import 'package:flip/components/Common/Product.dart';
 import 'package:flip/constants/global_variables.dart';
 import 'package:flutter/material.dart';
 

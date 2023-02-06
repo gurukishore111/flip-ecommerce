@@ -28,7 +28,7 @@ class CustomTextField extends StatelessWidget {
           ))),
       validator: (val) {
         if (val == null || val.isEmpty) {
-          return 'Enter your $placeHolder';
+          return 'Enter the $placeHolder';
         }
         return null;
       },

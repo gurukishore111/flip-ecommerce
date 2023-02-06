@@ -1,6 +1,7 @@
 const express = require('express');
 const { authRouter } = require('./routes/auth');
 const mongoose = require('mongoose');
+const adminRouter = require('./routes/admin');
 const app = express();
 require('dotenv').config();
 app.use(express.json());
@@ -23,5 +24,6 @@ app.get('/', (req, res) => {
 });
 
 app.use('/api/user', authRouter);
+app.use('/admin', adminRouter);
 
 app.listen(PORT, '0.0.0.0', () => console.log(`Server listening at ${PORT}`));

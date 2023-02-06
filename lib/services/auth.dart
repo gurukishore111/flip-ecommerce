@@ -1,12 +1,10 @@
 import 'dart:convert';
-
-import 'package:flip/components/common/BotttomNav.dart';
-import 'package:flip/components/common/SnackBar.dart';
+import 'package:flip/components/Common/BotttomNav.dart';
+import 'package:flip/components/Common/SnackBar.dart';
 import 'package:flip/constants/global_variables.dart';
 import 'package:flip/helpers/error_handing.dart';
 import 'package:flip/models/User.dart';
 import 'package:flip/providers/user.dart';
-import 'package:flip/screens/HomeScreen.dart';
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
 import 'package:provider/provider.dart';

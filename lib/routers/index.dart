@@ -1,4 +1,4 @@
-import 'package:flip/components/common/BotttomNav.dart';
+import 'package:flip/components/Common/BotttomNav.dart';
 import 'package:flip/screens/AddProductScreen.dart';
 import 'package:flip/screens/AuthScreen.dart';
 import 'package:flip/screens/HomeScreen.dart';

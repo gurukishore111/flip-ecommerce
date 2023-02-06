@@ -38,6 +38,12 @@
       "languageVersion": "2.12"
     },
     {
+      "name": "cloudinary_public",
+      "rootUri": "file:///Users/gurukishore/development/sdks/flutter/.pub-cache/hosted/pub.dartlang.org/cloudinary_public-0.20.0",
+      "packageUri": "lib/",
+      "languageVersion": "2.12"
+    },
+    {
       "name": "collection",
       "rootUri": "file:///Users/gurukishore/development/sdks/flutter/.pub-cache/hosted/pub.dartlang.org/collection-1.16.0",
       "packageUri": "lib/",
@@ -52,6 +58,12 @@
     {
       "name": "cupertino_icons",
       "rootUri": "file:///Users/gurukishore/development/sdks/flutter/.pub-cache/hosted/pub.dartlang.org/cupertino_icons-1.0.5",
+      "packageUri": "lib/",
+      "languageVersion": "2.12"
+    },
+    {
+      "name": "dio",
+      "rootUri": "file:///Users/gurukishore/development/sdks/flutter/.pub-cache/hosted/pub.dartlang.org/dio-4.0.6",
       "packageUri": "lib/",
       "languageVersion": "2.12"
     },
@@ -362,7 +374,7 @@
       "languageVersion": "2.18"
     }
   ],
-  "generated": "2023-02-06T07:45:52.418642Z",
+  "generated": "2023-02-06T08:29:41.376184Z",
   "generator": "pub",
   "generatorVersion": "2.18.5"
 }
