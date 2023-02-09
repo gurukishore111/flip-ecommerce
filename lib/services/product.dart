@@ -42,4 +42,38 @@ class ProductServices {
     }
     return productList;
   }
+
+  Future<List<Product>> searchProduct({
+    required BuildContext context,
+    required String query,
+  }) async {
+    final user = Provider.of<UserProvider>(context, listen: false).user;
+    List<Product> productList = [];
+    try {
+      http.Response response = await http.get(
+        Uri.parse('$uri/product/search/$query'),
+        headers: <String, String>{
+          'Content-Type': "application/json; charset=UTF-8",
+          "x-auth-token": user.token
+        },
+      );
+      httpErrorHandler(
+          response: response,
+          context: context,
+          onSuccess: () {
+            for (var i = 0; i < jsonDecode(response.body).length; i++) {
+              productList.add(
+                Product.fromJson(
+                  jsonEncode(
+                    jsonDecode(response.body)[i],
+                  ),
+                ),
+              );
+            }
+          });
+    } catch (e) {
+      showSnackBar(context, e.toString());
+    }
+    return productList;
+  }
 }

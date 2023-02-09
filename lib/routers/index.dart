@@ -4,6 +4,7 @@ import 'package:flip/screens/AuthScreen.dart';
 import 'package:flip/screens/CategoryDeals.dart';
 import 'package:flip/screens/HomeScreen.dart';
 import 'package:flip/screens/NotFound.dart';
+import 'package:flip/screens/SearchScreen.dart';
 import 'package:flutter/material.dart';
 
 Route<dynamic> generateRoute(RouteSettings routeSettings) {
@@ -29,6 +30,13 @@ Route<dynamic> generateRoute(RouteSettings routeSettings) {
       return MaterialPageRoute(
         builder: (_) => CategoryDealsScreen(
           category: category,
+        ),
+      );
+    case SearchScreen.routeName:
+      var searchQuery = routeSettings.arguments as String;
+      return MaterialPageRoute(
+        builder: (_) => SearchScreen(
+          searchQuery: searchQuery,
         ),
       );
     default:

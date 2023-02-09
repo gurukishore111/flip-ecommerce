@@ -4,6 +4,7 @@ import 'package:flip/components/Home/DealOfDay.dart';
 import 'package:flip/components/Home/TopCategories.dart';
 import 'package:flip/constants/global_variables.dart';
 import 'package:flip/providers/user.dart';
+import 'package:flip/screens/SearchScreen.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
@@ -17,6 +18,10 @@ class HomeScreen extends StatefulWidget {
 }
 
 class _HomeScreenState extends State<HomeScreen> {
+  void navigateToSearchScreen(String query) {
+    Navigator.pushNamed(context, SearchScreen.routeName, arguments: query);
+  }
+
   @override
   Widget build(BuildContext context) {
     final user = Provider.of<UserProvider>(context).user;
@@ -41,6 +46,7 @@ class _HomeScreenState extends State<HomeScreen> {
                   borderRadius: BorderRadius.circular(7),
                   elevation: 1,
                   child: TextFormField(
+                    onFieldSubmitted: navigateToSearchScreen,
                     decoration: InputDecoration(
                         prefixIcon: InkWell(
                           onTap: () {},

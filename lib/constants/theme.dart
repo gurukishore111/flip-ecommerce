@@ -10,7 +10,7 @@ var appTheme = ThemeData(
       color: GlobalVariables.iconColor,
     ),
   ),
-  fontFamily: GoogleFonts.manrope().fontFamily,
+  fontFamily: GoogleFonts.poppins().fontFamily,
   brightness: Brightness.dark,
   textTheme: const TextTheme(
     bodyText1: TextStyle(fontSize: 18),

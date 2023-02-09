@@ -43,6 +43,8 @@ class _CategoryDealsScreenState extends State<CategoryDealsScreen> {
 
   @override
   Widget build(BuildContext context) {
+    var len = products?.length ?? 0;
+
     print(jsonEncode(products));
     return Scaffold(
       appBar: PreferredSize(
@@ -70,46 +72,69 @@ class _CategoryDealsScreenState extends State<CategoryDealsScreen> {
               style: TextStyle(fontSize: 20),
             ),
           ),
-          SizedBox(
-            height: 170,
-            child: GridView.builder(
-              padding: const EdgeInsets.only(left: 15),
-              scrollDirection: Axis.horizontal,
-              itemCount: products?.length,
-              gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-                  crossAxisCount: 1,
-                  mainAxisSpacing: 10,
-                  childAspectRatio: 1.4),
-              itemBuilder: ((context, index) {
-                final product = products![index];
-                return Column(
-                  children: [
-                    SizedBox(
-                      height: 130,
-                      child: DecoratedBox(
-                        decoration: BoxDecoration(
-                          border: Border.all(
-                              color: Colors.grey.shade700, width: 0.5),
-                        ),
-                        child: Padding(
-                          padding: EdgeInsets.all(10),
-                          child: Image.network(product.images[0]),
+          Visibility(
+            visible: len > 0,
+            replacement: Center(
+              child: Column(
+                children: [
+                  const SizedBox(
+                    height: 20,
+                  ),
+                  const Icon(
+                    Icons.description_rounded,
+                    size: 110,
+                  ),
+                  const SizedBox(
+                    height: 20,
+                  ),
+                  Text(
+                    "No result found for category - ${widget.category}",
+                    style: const TextStyle(fontSize: 14),
+                  ),
+                ],
+              ),
+            ),
+            child: SizedBox(
+              height: 170,
+              child: GridView.builder(
+                padding: const EdgeInsets.only(left: 15),
+                scrollDirection: Axis.horizontal,
+                itemCount: products?.length,
+                gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+                    crossAxisCount: 1,
+                    mainAxisSpacing: 10,
+                    childAspectRatio: 1.4),
+                itemBuilder: ((context, index) {
+                  final product = products![index];
+                  return Column(
+                    children: [
+                      SizedBox(
+                        height: 130,
+                        child: DecoratedBox(
+                          decoration: BoxDecoration(
+                            border: Border.all(
+                                color: Colors.grey.shade700, width: 0.5),
+                          ),
+                          child: Padding(
+                            padding: EdgeInsets.all(10),
+                            child: Image.network(product.images[0]),
+                          ),
                         ),
                       ),
-                    ),
-                    Container(
-                      alignment: Alignment.topLeft,
-                      padding:
-                          const EdgeInsets.only(left: 0, top: 5, right: 15),
-                      child: Text(
-                        product.name,
-                        maxLines: 3,
-                        overflow: TextOverflow.ellipsis,
-                      ),
-                    )
-                  ],
-                );
-              }),
+                      Container(
+                        alignment: Alignment.topLeft,
+                        padding:
+                            const EdgeInsets.only(left: 0, top: 5, right: 15),
+                        child: Text(
+                          product.name,
+                          maxLines: 3,
+                          overflow: TextOverflow.ellipsis,
+                        ),
+                      )
+                    ],
+                  );
+                }),
+              ),
             ),
           )
         ]),

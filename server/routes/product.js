@@ -18,6 +18,29 @@ productRouter.get('/:category', auth, async (req, res) => {
   }
 });
 
+// get all your products
+productRouter.get('/search/:query', auth, async (req, res) => {
+  const keyword = req.params.query
+    ? {
+        name: {
+          $regex: req.params.query,
+          $options: 'i',
+        },
+      }
+    : {};
+
+  try {
+    let product = await Product.find({ ...keyword });
+    res.json(product);
+  } catch (error) {
+    res.status(500).json({
+      error: error?.message
+        ? error.message
+        : 'Something went wrong while creating the account',
+    });
+  }
+});
+
 // delete by id
 
 module.exports = productRouter;
