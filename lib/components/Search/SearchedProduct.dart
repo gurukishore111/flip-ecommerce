@@ -67,10 +67,10 @@ class SearchedProduct extends StatelessWidget {
                     child: Text(
                       product.quantity > 0 ? 'In Stock' : 'Out of Stock',
                       style: TextStyle(
-                          fontSize: 12,
+                          fontSize: 11,
                           fontWeight: FontWeight.normal,
                           color: product.quantity > 0
-                              ? const Color.fromARGB(255, 103, 240, 226)
+                              ? const Color.fromARGB(255, 90, 245, 147)
                               : const Color.fromARGB(255, 249, 172, 167)),
                       maxLines: 2,
                     ),
