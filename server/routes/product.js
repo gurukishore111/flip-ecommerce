@@ -41,6 +41,32 @@ productRouter.get('/search/:query', auth, async (req, res) => {
   }
 });
 
-// delete by id
+productRouter.post('/rating', auth, async (req, res) => {
+  try {
+    const { id, rating } = req.body;
+    let product = await Product.findById(id);
+    for (let index = 0; index < product.ratings.length; index++) {
+      const ratingObj = product.ratings[index];
+      console.log({ userId: ratingObj.userId, res: req.user });
+      if (ratingObj.userId == req.user) {
+        product.ratings.splice(index, 1);
+        break;
+      }
+    }
+    const ratingSchema = {
+      userId: req.user,
+      rating,
+    };
+    product.ratings.push(ratingSchema);
+    product = await product.save();
+    res.json(product);
+  } catch (error) {
+    res.status(500).json({
+      error: error?.message
+        ? error.message
+        : 'Something went wrong while creating the account',
+    });
+  }
+});
 
 module.exports = productRouter;

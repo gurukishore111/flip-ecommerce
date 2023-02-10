@@ -6,6 +6,7 @@ import 'package:flip/constants/global_variables.dart';
 import 'package:flip/models/Product.dart';
 import 'package:flip/providers/user.dart';
 import 'package:flip/screens/SearchScreen.dart';
+import 'package:flip/services/product.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 import 'package:provider/provider.dart';
@@ -21,6 +22,8 @@ class ProductDetailsScreen extends StatefulWidget {
 }
 
 class _ProductDetailsScreenState extends State<ProductDetailsScreen> {
+  final ProductServices productServices = ProductServices();
+
   void navigateToSearchScreen(String query) {
     Navigator.pushNamed(context, SearchScreen.routeName, arguments: query);
   }
@@ -231,7 +234,8 @@ class _ProductDetailsScreenState extends State<ProductDetailsScreen> {
                     color: GlobalVariables.secondaryColor);
               }),
               onRatingUpdate: (rating) {
-                print(rating);
+                productServices.rateProduct(
+                    context: context, product: widget.product, rating: rating);
               },
             ),
             const SizedBox(
