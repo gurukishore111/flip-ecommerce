@@ -1,9 +1,11 @@
 import 'package:flip/components/Common/BotttomNav.dart';
+import 'package:flip/models/Product.dart';
 import 'package:flip/screens/AddProductScreen.dart';
 import 'package:flip/screens/AuthScreen.dart';
 import 'package:flip/screens/CategoryDeals.dart';
 import 'package:flip/screens/HomeScreen.dart';
 import 'package:flip/screens/NotFound.dart';
+import 'package:flip/screens/ProductDetailsScreen.dart';
 import 'package:flip/screens/SearchScreen.dart';
 import 'package:flutter/material.dart';
 
@@ -37,6 +39,13 @@ Route<dynamic> generateRoute(RouteSettings routeSettings) {
       return MaterialPageRoute(
         builder: (_) => SearchScreen(
           searchQuery: searchQuery,
+        ),
+      );
+    case ProductDetailsScreen.routeName:
+      var product = routeSettings.arguments as Product;
+      return MaterialPageRoute(
+        builder: (_) => ProductDetailsScreen(
+          product: product,
         ),
       );
     default:

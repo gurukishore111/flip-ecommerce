@@ -6,6 +6,7 @@ import 'package:flip/components/Search/SearchedProduct.dart';
 import 'package:flip/constants/global_variables.dart';
 import 'package:flip/models/Product.dart';
 import 'package:flip/providers/user.dart';
+import 'package:flip/screens/ProductDetailsScreen.dart';
 import 'package:flip/services/product.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
@@ -106,7 +107,7 @@ class _SearchScreenState extends State<SearchScreen> {
                         hintText: 'Search the product',
                         hintStyle: const TextStyle(
                           fontWeight: FontWeight.w500,
-                          fontSize: 17,
+                          fontSize: 14,
                         )),
                   ),
                 ),
@@ -161,8 +162,17 @@ class _SearchScreenState extends State<SearchScreen> {
                   child: ListView.builder(
                     itemCount: products?.length,
                     itemBuilder: ((context, index) {
-                      return SearchedProduct(
-                        product: products![index],
+                      return GestureDetector(
+                        onTap: () {
+                          Navigator.pushNamed(
+                            context,
+                            ProductDetailsScreen.routeName,
+                            arguments: products![index],
+                          );
+                        },
+                        child: SearchedProduct(
+                          product: products![index],
+                        ),
                       );
                     }),
                   ),

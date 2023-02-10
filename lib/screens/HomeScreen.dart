@@ -78,7 +78,7 @@ class _HomeScreenState extends State<HomeScreen> {
                         hintText: 'Search the product',
                         hintStyle: const TextStyle(
                           fontWeight: FontWeight.w500,
-                          fontSize: 17,
+                          fontSize: 14,
                         )),
                   ),
                 ),

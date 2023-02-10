@@ -107,7 +107,7 @@ class AuthService {
           Uri.parse('$uri/api/user/'),
           headers: <String, String>{
             'Content-Type': "application/json; charset=UTF-8",
-            "x-auth-token": token!
+            "x-auth-token": token
           },
         );
         var userProvider = Provider.of<UserProvider>(context!, listen: false);
