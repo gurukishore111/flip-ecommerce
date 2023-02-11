@@ -75,4 +75,46 @@ productRouter.post('/rating', auth, async (req, res) => {
   }
 });
 
+productRouter.delete('/rating/:id', auth, async (req, res) => {
+  try {
+    let product = await Product.findById(req.params.id);
+    for (let index = 0; index < product.ratings.length; index++) {
+      const ratingObj = product.ratings[index];
+      console.log({ userId: ratingObj.userId, res: req.user });
+      if (ratingObj.userId == req.user) {
+        product.ratings.splice(index, 1);
+        break;
+      }
+    }
+    product = await product.save();
+    res.json(product);
+  } catch (error) {
+    res.status(500).json({
+      error: error?.message
+        ? error.message
+        : 'Something went wrong while creating the account',
+    });
+  }
+});
+
+productRouter.get('/product/:id', auth, async (req, res) => {
+  console.log({ id: req.params.id });
+  try {
+    let product = await Product.findById(req.params.id);
+    if (product) {
+      res.json({ ...product._doc });
+    } else {
+      res.status(400).json({
+        msg: 'Product not found',
+      });
+    }
+  } catch (error) {
+    res.status(500).json({
+      error: error?.message
+        ? error.message
+        : 'Something went wrong while creating the account',
+    });
+  }
+});
+
 module.exports = productRouter;

@@ -105,4 +105,60 @@ class ProductServices {
       showSnackBar(context, e.toString());
     }
   }
+
+  Future<void> deleteRating({
+    required BuildContext context,
+    required Product product,
+    required VoidCallback onSuccessCallback,
+  }) async {
+    final user = Provider.of<UserProvider>(context, listen: false).user;
+    try {
+      http.Response response = await http.delete(
+        Uri.parse('$uri/product/rating/${product.id}'),
+        headers: <String, String>{
+          'Content-Type': "application/json; charset=UTF-8",
+          "x-auth-token": user.token
+        },
+      );
+      httpErrorHandler(
+          response: response,
+          context: context,
+          onSuccess: () {
+            showSnackBar(context, 'Review removed successfully');
+            onSuccessCallback();
+          });
+    } catch (e) {
+      showSnackBar(context, e.toString());
+    }
+  }
+
+  Future fetchProductsById({
+    required BuildContext context,
+    required String id,
+  }) async {
+    final user = Provider.of<UserProvider>(context, listen: false).user;
+    var products;
+    try {
+      http.Response response = await http.get(
+        Uri.parse('$uri/product//product/$id'),
+        headers: <String, String>{
+          'Content-Type': "application/json; charset=UTF-8",
+          "x-auth-token": user.token
+        },
+      );
+      httpErrorHandler(
+          response: response,
+          context: context,
+          onSuccess: () {
+            products = Product.fromJson(
+              jsonEncode(
+                jsonDecode(response.body),
+              ),
+            );
+          });
+    } catch (e) {
+      showSnackBar(context, e.toString());
+    }
+    return products;
+  }
 }
