@@ -4,44 +4,6 @@ const { Product } = require('../models/product');
 const productRouter = express.Router();
 const { User } = require('../models/user');
 
-// get all your products
-productRouter.get('/:category', auth, async (req, res) => {
-  console.log({ req: req.params.category });
-  try {
-    let product = await Product.find({ category: req.params.category });
-    res.json(product);
-  } catch (error) {
-    res.status(500).json({
-      error: error?.message
-        ? error.message
-        : 'Something went wrong while creating the account',
-    });
-  }
-});
-
-// get all your products
-productRouter.get('/search/:query', auth, async (req, res) => {
-  const keyword = req.params.query
-    ? {
-        name: {
-          $regex: req.params.query,
-          $options: 'i',
-        },
-      }
-    : {};
-
-  try {
-    let product = await Product.find({ ...keyword });
-    res.json(product);
-  } catch (error) {
-    res.status(500).json({
-      error: error?.message
-        ? error.message
-        : 'Something went wrong while creating the account',
-    });
-  }
-});
-
 productRouter.post('/rating', auth, async (req, res) => {
   try {
     const { id, rating, review } = req.body;
@@ -65,6 +27,76 @@ productRouter.post('/rating', auth, async (req, res) => {
 
     product.ratings.push(ratingSchema);
     product = await product.save();
+    res.json(product);
+  } catch (error) {
+    res.status(500).json({
+      error: error?.message
+        ? error.message
+        : 'Something went wrong while creating the account',
+    });
+  }
+});
+
+// get all your products
+productRouter.get('/:category', auth, async (req, res) => {
+  console.log({ req: req.params.category });
+  try {
+    let product = await Product.find({ category: req.params.category });
+    res.json(product);
+  } catch (error) {
+    res.status(500).json({
+      error: error?.message
+        ? error.message
+        : 'Something went wrong while creating the account',
+    });
+  }
+});
+
+productRouter.get('/deal/deal-of-day', auth, async (req, res) => {
+  try {
+    let products = await Product.find({});
+    let newProducts = products.sort((a, b) => {
+      let aSum = 0;
+      let bSum = 0;
+      for (let index = 0; index < a.ratings.length; index++) {
+        const element = a.ratings[index];
+        aSum += element.rating;
+      }
+      for (let index = 0; index < b.ratings.length; index++) {
+        const element = b.ratings[index];
+        bSum += element.rating;
+      }
+      return aSum < bSum ? 1 : -1;
+    });
+    if (newProducts) {
+      res.json(newProducts);
+    } else {
+      res.status(400).json({
+        msg: 'Product not found',
+      });
+    }
+  } catch (error) {
+    res.status(500).json({
+      error: error?.message
+        ? error.message
+        : 'Something went wrong while creating the account',
+    });
+  }
+});
+
+// get all your products
+productRouter.get('/search/:query', auth, async (req, res) => {
+  const keyword = req.params.query
+    ? {
+        name: {
+          $regex: req.params.query,
+          $options: 'i',
+        },
+      }
+    : {};
+
+  try {
+    let product = await Product.find({ ...keyword });
     res.json(product);
   } catch (error) {
     res.status(500).json({
