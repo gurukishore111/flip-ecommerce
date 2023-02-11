@@ -44,9 +44,8 @@ class _CategoryDealsScreenState extends State<CategoryDealsScreen> {
 
   @override
   Widget build(BuildContext context) {
-    var len = products?.length ?? 0;
+    int len = products?.length ?? 0;
 
-    print(jsonEncode(products));
     return Scaffold(
       appBar: PreferredSize(
         preferredSize: const Size.fromHeight(50),

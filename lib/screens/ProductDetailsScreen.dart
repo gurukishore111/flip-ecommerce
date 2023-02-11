@@ -1,6 +1,10 @@
+import 'dart:convert';
+
 import 'package:carousel_slider/carousel_options.dart';
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flip/components/Common/CustomButton.dart';
+import 'package:flip/components/Common/CustomTextField.dart';
+import 'package:flip/components/Common/SnackBar.dart';
 import 'package:flip/components/Common/Stars.dart';
 import 'package:flip/constants/global_variables.dart';
 import 'package:flip/models/Product.dart';
@@ -23,8 +27,13 @@ class ProductDetailsScreen extends StatefulWidget {
 
 class _ProductDetailsScreenState extends State<ProductDetailsScreen> {
   final ProductServices productServices = ProductServices();
+  final TextEditingController _reviewController = TextEditingController();
+
+  final _reviewFormKey = GlobalKey<FormState>();
+
   double avgRating = 0;
   double myRating = 0;
+  double newRating = 0;
 
   @override
   void initState() {
@@ -36,6 +45,10 @@ class _ProductDetailsScreenState extends State<ProductDetailsScreen> {
       if (widget.product.rating![i].userId ==
           Provider.of<UserProvider>(context, listen: false).user.id) {
         myRating = widget.product.rating![i].rating;
+        setState(() {
+          _reviewController.text = widget.product.rating![i].review;
+          newRating = widget.product.rating![i].rating;
+        });
       }
     }
     if (totalRating != 0) {
@@ -45,6 +58,19 @@ class _ProductDetailsScreenState extends State<ProductDetailsScreen> {
 
   void navigateToSearchScreen(String query) {
     Navigator.pushNamed(context, SearchScreen.routeName, arguments: query);
+  }
+
+  void submitReview() {
+    if (newRating > 0) {
+      productServices.rateProduct(
+        context: context,
+        product: widget.product,
+        rating: newRating,
+        review: _reviewController.text,
+      );
+    } else {
+      showSnackBar(context, 'Please select a rating star!');
+    }
   }
 
   @override
@@ -253,12 +279,78 @@ class _ProductDetailsScreenState extends State<ProductDetailsScreen> {
                     color: GlobalVariables.secondaryColor);
               }),
               onRatingUpdate: (rating) {
-                productServices.rateProduct(
-                    context: context, product: widget.product, rating: rating);
+                // productServices.rateProduct(
+                //     context: context, product: widget.product, rating: rating);
+                setState(() {
+                  newRating = rating;
+                });
               },
             ),
             const SizedBox(
               height: 20,
+            ),
+            Padding(
+              padding: const EdgeInsets.only(left: 10, right: 10),
+              child: Form(
+                key: _reviewFormKey,
+                child: Column(
+                  children: [
+                    CustomTextField(
+                      maxLines: 3,
+                      placeHolder: 'Product review',
+                      controller: _reviewController,
+                    ),
+                    const SizedBox(height: 10),
+                    CustomButton(
+                        text: myRating > 0 ? 'Edit Review' : 'Submit',
+                        onTap: () {
+                          if (_reviewFormKey.currentState!.validate()) {
+                            submitReview();
+                          }
+                        }),
+                    const SizedBox(height: 15),
+                  ],
+                ),
+              ),
+            ),
+            Visibility(
+              visible: avgRating > 0,
+              child: Padding(
+                padding:
+                    const EdgeInsets.symmetric(vertical: 10, horizontal: 20),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    const Text(
+                      'Other Reviews',
+                      style: TextStyle(fontSize: 16),
+                    ),
+                    Text(
+                      'Average rating $avgRating/5',
+                      style: const TextStyle(fontSize: 16),
+                    ),
+                  ],
+                ),
+              ),
+            ),
+            Column(
+                children: widget.product.rating!.map((rating) {
+              return Visibility(
+                visible: rating.userId != user.id,
+                child: ListTile(
+                  leading: CircleAvatar(
+                    backgroundImage: NetworkImage(
+                      "https://api.dicebear.com/5.x/bottts-neutral/png?seed=${rating.username}",
+                    ),
+                  ),
+                  title: Text(rating.review),
+                  subtitle: Text(rating.username),
+                  trailing: Stars(rating: rating.rating),
+                ),
+              );
+            }).toList()),
+            const SizedBox(
+              height: 30,
             ),
           ],
         ),

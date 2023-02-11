@@ -2,6 +2,7 @@ const express = require('express');
 const { auth } = require('../middleware/auth');
 const { Product } = require('../models/product');
 const productRouter = express.Router();
+const { User } = require('../models/user');
 
 // get all your products
 productRouter.get('/:category', auth, async (req, res) => {
@@ -43,7 +44,7 @@ productRouter.get('/search/:query', auth, async (req, res) => {
 
 productRouter.post('/rating', auth, async (req, res) => {
   try {
-    const { id, rating } = req.body;
+    const { id, rating, review } = req.body;
     let product = await Product.findById(id);
     for (let index = 0; index < product.ratings.length; index++) {
       const ratingObj = product.ratings[index];
@@ -53,10 +54,15 @@ productRouter.post('/rating', auth, async (req, res) => {
         break;
       }
     }
+    const user = await User.findById(req.user);
+
     const ratingSchema = {
       userId: req.user,
       rating,
+      username: user.name,
+      review: review,
     };
+
     product.ratings.push(ratingSchema);
     product = await product.save();
     res.json(product);

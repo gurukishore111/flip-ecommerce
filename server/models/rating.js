@@ -10,6 +10,14 @@ const ratingSchema = mongoose.Schema({
     type: Number,
     required: true,
   },
+  username: {
+    type: String,
+    required: true,
+  },
+  review: {
+    type: String,
+    required: true,
+  },
 });
 
 module.exports = { ratingSchema };
