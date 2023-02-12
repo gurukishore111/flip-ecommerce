@@ -1,8 +1,10 @@
 import 'package:badges/badges.dart';
 import 'package:flip/constants/global_variables.dart';
+import 'package:flip/providers/user.dart';
 import 'package:flip/screens/AccountScreen.dart';
 import 'package:flip/screens/HomeScreen.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 
 class BottomNav extends StatefulWidget {
   static const String routeName = '/actual-home';
@@ -32,6 +34,7 @@ class _BottomNavState extends State<BottomNav> {
 
   @override
   Widget build(BuildContext context) {
+    final userCartLen = context.watch<UserProvider>().user.cart.length;
     return Scaffold(
       body: pages[_page],
       bottomNavigationBar: BottomNavigationBar(
@@ -88,9 +91,9 @@ class _BottomNavState extends State<BottomNav> {
               ))),
               child: Badge(
                   elevation: 0,
-                  badgeContent: const Text(
-                    '2',
-                    style: TextStyle(
+                  badgeContent: Text(
+                    userCartLen.toString(),
+                    style: const TextStyle(
                       color: GlobalVariables.secondaryColor,
                       fontSize: 14,
                     ),

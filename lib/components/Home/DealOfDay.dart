@@ -33,25 +33,26 @@ class _DealOfDayState extends State<DealOfDay> {
 
   @override
   Widget build(BuildContext context) {
-    var len = products?.length ?? 0;
-    return Column(
-      children: [
-        Container(
-          decoration: BoxDecoration(color: Colors.black38),
-          alignment: Alignment.topLeft,
-          padding: const EdgeInsets.only(left: 15, top: 15),
-          child: Text("Deal of the Day"),
-        ),
-        Container(
-          decoration: BoxDecoration(color: Colors.black38),
-          padding: EdgeInsets.only(top: 20, bottom: 20),
-          child: Visibility(
-            visible: len > 0,
-            replacement: Loader(),
+    var p = products;
+    if (p != null) {
+      return Column(
+        children: [
+          Container(
+            decoration: BoxDecoration(color: Colors.black38),
+            alignment: Alignment.topLeft,
+            padding: const EdgeInsets.only(left: 15, top: 15),
+            child: Text("Deal of the Day"),
+          ),
+          Container(
+            decoration: BoxDecoration(color: Colors.black38),
+            padding: EdgeInsets.only(top: 20, bottom: 20),
             child: GestureDetector(
               onTap: () {
-                Navigator.pushNamed(context, ProductDetailsScreen.routeName,
-                    arguments: products![0]);
+                Navigator.pushNamed(
+                  context,
+                  ProductDetailsScreen.routeName,
+                  arguments: p![0],
+                );
               },
               child: Row(
                 crossAxisAlignment: CrossAxisAlignment.start,
@@ -60,7 +61,7 @@ class _DealOfDayState extends State<DealOfDay> {
                   Container(
                     padding: const EdgeInsets.only(left: 10, right: 10),
                     child: Image.network(
-                      products![0].images[0],
+                      p![0].images[0],
                       height: 150,
                       fit: BoxFit.cover,
                     ),
@@ -71,18 +72,18 @@ class _DealOfDayState extends State<DealOfDay> {
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         Text(
-                          products![0].name,
+                          p![0].name,
                           overflow: TextOverflow.ellipsis,
                         ),
                         Text(
-                          products![0].description,
+                          p![0].description,
                           maxLines: 3,
                           overflow: TextOverflow.ellipsis,
                           style: TextStyle(color: Colors.grey, fontSize: 12),
                         ),
                         SizedBox(height: 10),
                         Text(
-                          '\$${products![0].price}',
+                          '\$${p![0].price}',
                           style: TextStyle(
                             color: GlobalVariables.secondaryColor,
                             fontSize: 22,
@@ -95,46 +96,51 @@ class _DealOfDayState extends State<DealOfDay> {
               ),
             ),
           ),
-        ),
-        SingleChildScrollView(
-          scrollDirection: Axis.horizontal,
-          child:
-              Row(mainAxisAlignment: MainAxisAlignment.spaceBetween, children: [
-            ...products!.map((product) {
-              return GestureDetector(
-                onTap: () {
-                  Navigator.pushNamed(context, ProductDetailsScreen.routeName,
-                      arguments: product);
-                },
-                child: Padding(
-                  padding: const EdgeInsets.all(8.0),
-                  child: Image.network(
-                    product!.images[0],
-                    fit: BoxFit.fitWidth,
-                    width: 100,
-                    height: 100,
-                  ),
-                ),
-              );
-            }).toList(),
-            GestureDetector(
-              onTap: () {
-                Navigator.pushNamed(context, CategoryDealsScreen.routeName,
-                    arguments: 'Mobiles');
-              },
-              child: Container(
-                padding: EdgeInsets.all(20),
-                child: const Text(
-                  "See all deals",
-                  style: TextStyle(
-                    color: GlobalVariables.secondaryColor,
-                  ),
-                ),
-              ),
-            )
-          ]),
-        ),
-      ],
-    );
+          SingleChildScrollView(
+            scrollDirection: Axis.horizontal,
+            child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  ...p!.map((product) {
+                    return GestureDetector(
+                      onTap: () {
+                        Navigator.pushNamed(
+                            context, ProductDetailsScreen.routeName,
+                            arguments: product);
+                      },
+                      child: Padding(
+                        padding: const EdgeInsets.all(8.0),
+                        child: Image.network(
+                          product!.images[0],
+                          fit: BoxFit.fitWidth,
+                          width: 100,
+                          height: 100,
+                        ),
+                      ),
+                    );
+                  }).toList(),
+                  GestureDetector(
+                    onTap: () {
+                      Navigator.pushNamed(
+                          context, CategoryDealsScreen.routeName,
+                          arguments: 'Mobiles');
+                    },
+                    child: Container(
+                      padding: EdgeInsets.all(20),
+                      child: const Text(
+                        "See all deals",
+                        style: TextStyle(
+                          color: GlobalVariables.secondaryColor,
+                        ),
+                      ),
+                    ),
+                  )
+                ]),
+          ),
+        ],
+      );
+    } else {
+      return Loader();
+    }
   }
 }

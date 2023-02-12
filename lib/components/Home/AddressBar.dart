@@ -26,7 +26,7 @@ class AddressBar extends StatelessWidget {
             child: Padding(
               padding: const EdgeInsets.only(left: 5),
               child: Text(
-                "Delivery to ${user.name} - ${user.address == '' ? '\u{26A0} Update the address' : user.address}",
+                "Delivery to ${user.name} ${user.address == '' ? '' : user.address}",
                 style: const TextStyle(
                   fontWeight: FontWeight.w500,
                   fontSize: 13,

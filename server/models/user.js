@@ -1,5 +1,6 @@
 const mongoose = require('mongoose');
 const bcrypt = require('bcrypt');
+const { productSchema } = require('./product');
 
 const userSchema = mongoose.Schema({
   name: {
@@ -39,7 +40,15 @@ const userSchema = mongoose.Schema({
     type: String,
     default: 'user',
   },
-  // cart
+  cart: [
+    {
+      product: productSchema,
+      quantity: {
+        type: Number,
+        required: true,
+      },
+    },
+  ],
 });
 
 userSchema.methods.matchPassword = async function (enteredPassword) {

@@ -69,6 +69,10 @@ class _ProductDetailsScreenState extends State<ProductDetailsScreen> {
     Navigator.pushNamed(context, SearchScreen.routeName, arguments: query);
   }
 
+  void addToCart() {
+    productServices.addToCart(context: context, product: productDetails);
+  }
+
   Future fetchProductDetails() async {
     var res = await productServices.fetchProductsById(
       context: context,
@@ -355,7 +359,7 @@ class _ProductDetailsScreenState extends State<ProductDetailsScreen> {
                 padding: const EdgeInsets.all(10),
                 child: CustomButton(
                   text: 'Add to Cart',
-                  onTap: () {},
+                  onTap: addToCart,
                   color: const Color.fromRGBO(254, 216, 19, 1),
                 ),
               ),

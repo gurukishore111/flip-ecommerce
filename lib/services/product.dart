@@ -3,6 +3,7 @@ import 'package:flip/models/Product.dart';
 import 'dart:convert';
 import 'package:flip/components/Common/SnackBar.dart';
 import 'package:flip/constants/global_variables.dart';
+import 'package:flip/models/User.dart';
 import 'package:flip/providers/user.dart';
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
@@ -193,5 +194,33 @@ class ProductServices {
       showSnackBar(context, e.toString());
     }
     return productList;
+  }
+
+  Future<void> addToCart({
+    required BuildContext context,
+    required Product product,
+  }) async {
+    final userProvider = Provider.of<UserProvider>(context, listen: false);
+    try {
+      http.Response response = await http.post(Uri.parse('$uri/user/add-cart'),
+          headers: <String, String>{
+            'Content-Type': "application/json; charset=UTF-8",
+            "x-auth-token": userProvider.user.token
+          },
+          body: jsonEncode({
+            "id": product.id!,
+          }));
+      httpErrorHandler(
+          response: response,
+          context: context,
+          onSuccess: () {
+            User user = userProvider.user
+                .copyWith(cart: jsonDecode(response.body)['cart']);
+            showSnackBar(context, 'Product successfully added to cart');
+            userProvider.setUserFromModal(user);
+          });
+    } catch (e) {
+      showSnackBar(context, e.toString());
+    }
   }
 }
