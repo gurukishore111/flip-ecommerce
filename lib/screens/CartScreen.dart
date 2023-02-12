@@ -4,6 +4,7 @@ import 'package:flip/components/Common/CustomButton.dart';
 import 'package:flip/components/Home/AddressBar.dart';
 import 'package:flip/constants/global_variables.dart';
 import 'package:flip/providers/user.dart';
+import 'package:flip/screens/AddressScreen.dart';
 import 'package:flip/screens/SearchScreen.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
@@ -18,6 +19,10 @@ class CartScreen extends StatefulWidget {
 class _CartScreenState extends State<CartScreen> {
   void navigateToSearchScreen(String query) {
     Navigator.pushNamed(context, SearchScreen.routeName, arguments: query);
+  }
+
+  void navigateToAddressScreen() {
+    Navigator.pushNamed(context, AddressScreen.routeName);
   }
 
   @override
@@ -106,7 +111,7 @@ class _CartScreenState extends State<CartScreen> {
               padding: const EdgeInsets.all(9.0),
               child: CustomButton(
                 text: 'Proceed to Buy (${user.cart.length} items)',
-                onTap: () {},
+                onTap: () => navigateToAddressScreen(),
                 color: Colors.yellow[700],
               ),
             ),

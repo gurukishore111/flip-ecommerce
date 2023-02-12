@@ -1,6 +1,7 @@
 import 'package:flip/components/Common/BotttomNav.dart';
 import 'package:flip/models/Product.dart';
 import 'package:flip/screens/AddProductScreen.dart';
+import 'package:flip/screens/AddressScreen.dart';
 import 'package:flip/screens/AuthScreen.dart';
 import 'package:flip/screens/CategoryDeals.dart';
 import 'package:flip/screens/HomeScreen.dart';
@@ -47,6 +48,10 @@ Route<dynamic> generateRoute(RouteSettings routeSettings) {
         builder: (_) => ProductDetailsScreen(
           product: product,
         ),
+      );
+    case AddressScreen.routeName:
+      return MaterialPageRoute(
+        builder: (_) => const AddressScreen(),
       );
     default:
       return MaterialPageRoute(
