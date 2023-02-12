@@ -223,4 +223,31 @@ class ProductServices {
       showSnackBar(context, e.toString());
     }
   }
+
+  Future<void> removeFromCart({
+    required BuildContext context,
+    required Product product,
+  }) async {
+    final userProvider = Provider.of<UserProvider>(context, listen: false);
+    try {
+      http.Response response = await http.delete(
+        Uri.parse('$uri/user/remove-cart/${product.id}'),
+        headers: <String, String>{
+          'Content-Type': "application/json; charset=UTF-8",
+          "x-auth-token": userProvider.user.token
+        },
+      );
+      httpErrorHandler(
+          response: response,
+          context: context,
+          onSuccess: () {
+            User user = userProvider.user
+                .copyWith(cart: jsonDecode(response.body)['cart']);
+            showSnackBar(context, 'Product successfully removed from cart');
+            userProvider.setUserFromModal(user);
+          });
+    } catch (e) {
+      showSnackBar(context, e.toString());
+    }
+  }
 }
