@@ -2,6 +2,7 @@ import 'package:badges/badges.dart';
 import 'package:flip/constants/global_variables.dart';
 import 'package:flip/providers/user.dart';
 import 'package:flip/screens/AccountScreen.dart';
+import 'package:flip/screens/CartScreen.dart';
 import 'package:flip/screens/HomeScreen.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
@@ -22,11 +23,10 @@ class _BottomNavState extends State<BottomNav> {
   List<Widget> pages = [
     const HomeScreen(),
     const AccountScreen(),
-    const Center(child: Text('Cart')),
+    const CartScreen(),
   ];
 
   void updatePage(int page) {
-    print('page $page');
     setState(() {
       _page = page;
     });
