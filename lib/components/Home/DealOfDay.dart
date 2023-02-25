@@ -38,14 +38,14 @@ class _DealOfDayState extends State<DealOfDay> {
       return Column(
         children: [
           Container(
-            decoration: BoxDecoration(color: Colors.black38),
+            decoration: const BoxDecoration(color: Colors.black38),
             alignment: Alignment.topLeft,
             padding: const EdgeInsets.only(left: 15, top: 15),
-            child: Text("Deal of the Day"),
+            child: const Text("Deal of the Day"),
           ),
           Container(
-            decoration: BoxDecoration(color: Colors.black38),
-            padding: EdgeInsets.only(top: 20, bottom: 20),
+            decoration: const BoxDecoration(color: Colors.black38),
+            padding: const EdgeInsets.only(top: 20, bottom: 20),
             child: GestureDetector(
               onTap: () {
                 Navigator.pushNamed(
@@ -79,12 +79,13 @@ class _DealOfDayState extends State<DealOfDay> {
                           p![0].description,
                           maxLines: 3,
                           overflow: TextOverflow.ellipsis,
-                          style: TextStyle(color: Colors.grey, fontSize: 12),
+                          style:
+                              const TextStyle(color: Colors.grey, fontSize: 12),
                         ),
-                        SizedBox(height: 10),
+                        const SizedBox(height: 10),
                         Text(
                           '\$${p![0].price}',
-                          style: TextStyle(
+                          style: const TextStyle(
                             color: GlobalVariables.secondaryColor,
                             fontSize: 22,
                           ),
@@ -126,7 +127,7 @@ class _DealOfDayState extends State<DealOfDay> {
                           arguments: 'Mobiles');
                     },
                     child: Container(
-                      padding: EdgeInsets.all(20),
+                      padding: const EdgeInsets.all(20),
                       child: const Text(
                         "See all deals",
                         style: TextStyle(
@@ -140,7 +141,7 @@ class _DealOfDayState extends State<DealOfDay> {
         ],
       );
     } else {
-      return Loader();
+      return const Loader();
     }
   }
 }

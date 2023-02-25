@@ -1,8 +1,20 @@
 -- Merging decision tree log ---
 application
 INJECTED from /Users/gurukishore/Projects/Flutter/Flip/android/app/src/main/AndroidManifest.xml:3:4-33:19
+MERGED from [:pay_android] /Users/gurukishore/Projects/Flutter/Flip/build/pay_android/intermediates/merged_manifest/debug/AndroidManifest.xml:13:5-17:19
+MERGED from [:pay_android] /Users/gurukishore/Projects/Flutter/Flip/build/pay_android/intermediates/merged_manifest/debug/AndroidManifest.xml:13:5-17:19
 MERGED from [androidx.window:window:1.0.0-beta04] /Users/gurukishore/.gradle/caches/transforms-3/49bc944d29f70d45aa5add8e43e3247e/transformed/jetified-window-1.0.0-beta04/AndroidManifest.xml:24:5-31:19
 MERGED from [androidx.window:window:1.0.0-beta04] /Users/gurukishore/.gradle/caches/transforms-3/49bc944d29f70d45aa5add8e43e3247e/transformed/jetified-window-1.0.0-beta04/AndroidManifest.xml:24:5-31:19
+MERGED from [com.google.android.gms:play-services-identity:17.0.0] /Users/gurukishore/.gradle/caches/transforms-3/6ac5772983d7c38fc7ee30657f28c661/transformed/jetified-play-services-identity-17.0.0/AndroidManifest.xml:22:5-20
+MERGED from [com.google.android.gms:play-services-identity:17.0.0] /Users/gurukishore/.gradle/caches/transforms-3/6ac5772983d7c38fc7ee30657f28c661/transformed/jetified-play-services-identity-17.0.0/AndroidManifest.xml:22:5-20
+MERGED from [com.google.android.gms:play-services-maps:17.0.0] /Users/gurukishore/.gradle/caches/transforms-3/e115828bd46a366924364d5397d53b25/transformed/jetified-play-services-maps-17.0.0/AndroidManifest.xml:30:5-36:19
+MERGED from [com.google.android.gms:play-services-maps:17.0.0] /Users/gurukishore/.gradle/caches/transforms-3/e115828bd46a366924364d5397d53b25/transformed/jetified-play-services-maps-17.0.0/AndroidManifest.xml:30:5-36:19
+MERGED from [com.google.android.gms:play-services-base:17.0.0] /Users/gurukishore/.gradle/caches/transforms-3/1ea967b797818d9badf6aaa0240ca184/transformed/jetified-play-services-base-17.0.0/AndroidManifest.xml:22:5-27:19
+MERGED from [com.google.android.gms:play-services-base:17.0.0] /Users/gurukishore/.gradle/caches/transforms-3/1ea967b797818d9badf6aaa0240ca184/transformed/jetified-play-services-base-17.0.0/AndroidManifest.xml:22:5-27:19
+MERGED from [com.google.android.gms:play-services-tasks:17.0.0] /Users/gurukishore/.gradle/caches/transforms-3/6c30e38738f1354a4bf3b93fb5510fa8/transformed/jetified-play-services-tasks-17.0.0/AndroidManifest.xml:7:5-20
+MERGED from [com.google.android.gms:play-services-tasks:17.0.0] /Users/gurukishore/.gradle/caches/transforms-3/6c30e38738f1354a4bf3b93fb5510fa8/transformed/jetified-play-services-tasks-17.0.0/AndroidManifest.xml:7:5-20
+MERGED from [com.google.android.gms:play-services-basement:17.0.0] /Users/gurukishore/.gradle/caches/transforms-3/4ef803ba34d31dcf48df123a27eb5d76/transformed/jetified-play-services-basement-17.0.0/AndroidManifest.xml:22:5-26:19
+MERGED from [com.google.android.gms:play-services-basement:17.0.0] /Users/gurukishore/.gradle/caches/transforms-3/4ef803ba34d31dcf48df123a27eb5d76/transformed/jetified-play-services-basement-17.0.0/AndroidManifest.xml:22:5-26:19
 MERGED from [androidx.core:core:1.6.0] /Users/gurukishore/.gradle/caches/transforms-3/acbce933e4b464a5224ed377a62db1f5/transformed/core-1.6.0/AndroidManifest.xml:24:5-89
 MERGED from [androidx.core:core:1.6.0] /Users/gurukishore/.gradle/caches/transforms-3/acbce933e4b464a5224ed377a62db1f5/transformed/core-1.6.0/AndroidManifest.xml:24:5-89
 MERGED from [androidx.versionedparcelable:versionedparcelable:1.1.1] /Users/gurukishore/.gradle/caches/transforms-3/c6290d38a27dcf8d064fa9cefcb89071/transformed/versionedparcelable-1.1.1/AndroidManifest.xml:24:5-25:19
@@ -17,9 +29,19 @@ INJECTED from /Users/gurukishore/Projects/Flutter/Flip/android/app/src/main/Andr
 INJECTED from /Users/gurukishore/Projects/Flutter/Flip/android/app/src/main/AndroidManifest.xml:1:1-34:12
 INJECTED from /Users/gurukishore/Projects/Flutter/Flip/android/app/src/main/AndroidManifest.xml:1:1-34:12
 MERGED from /Users/gurukishore/Projects/Flutter/Flip/android/app/src/main/AndroidManifest.xml:1:1-34:12
+MERGED from [:shared_preferences_android] /Users/gurukishore/Projects/Flutter/Flip/build/shared_preferences_android/intermediates/merged_manifest/debug/AndroidManifest.xml:2:1-9:12
+MERGED from [:file_picker] /Users/gurukishore/Projects/Flutter/Flip/build/file_picker/intermediates/merged_manifest/debug/AndroidManifest.xml:2:1-19:12
+MERGED from [:flutter_plugin_android_lifecycle] /Users/gurukishore/Projects/Flutter/Flip/build/flutter_plugin_android_lifecycle/intermediates/merged_manifest/debug/AndroidManifest.xml:2:1-9:12
 MERGED from [:path_provider_android] /Users/gurukishore/Projects/Flutter/Flip/build/path_provider_android/intermediates/merged_manifest/debug/AndroidManifest.xml:2:1-9:12
+MERGED from [:pay_android] /Users/gurukishore/Projects/Flutter/Flip/build/pay_android/intermediates/merged_manifest/debug/AndroidManifest.xml:6:1-19:12
 MERGED from [androidx.window:window-java:1.0.0-beta04] /Users/gurukishore/.gradle/caches/transforms-3/246793f755122fe14a5802655438cb75/transformed/jetified-window-java-1.0.0-beta04/AndroidManifest.xml:17:1-23:12
 MERGED from [androidx.window:window:1.0.0-beta04] /Users/gurukishore/.gradle/caches/transforms-3/49bc944d29f70d45aa5add8e43e3247e/transformed/jetified-window-1.0.0-beta04/AndroidManifest.xml:17:1-33:12
+MERGED from [com.google.android.gms:play-services-wallet:18.1.2] /Users/gurukishore/.gradle/caches/transforms-3/81a0c4259db5698ca7f8a7935112d267/transformed/jetified-play-services-wallet-18.1.2/AndroidManifest.xml:17:1-22:12
+MERGED from [com.google.android.gms:play-services-identity:17.0.0] /Users/gurukishore/.gradle/caches/transforms-3/6ac5772983d7c38fc7ee30657f28c661/transformed/jetified-play-services-identity-17.0.0/AndroidManifest.xml:17:1-24:12
+MERGED from [com.google.android.gms:play-services-maps:17.0.0] /Users/gurukishore/.gradle/caches/transforms-3/e115828bd46a366924364d5397d53b25/transformed/jetified-play-services-maps-17.0.0/AndroidManifest.xml:17:1-38:12
+MERGED from [com.google.android.gms:play-services-base:17.0.0] /Users/gurukishore/.gradle/caches/transforms-3/1ea967b797818d9badf6aaa0240ca184/transformed/jetified-play-services-base-17.0.0/AndroidManifest.xml:17:1-29:12
+MERGED from [com.google.android.gms:play-services-tasks:17.0.0] /Users/gurukishore/.gradle/caches/transforms-3/6c30e38738f1354a4bf3b93fb5510fa8/transformed/jetified-play-services-tasks-17.0.0/AndroidManifest.xml:2:1-9:12
+MERGED from [com.google.android.gms:play-services-basement:17.0.0] /Users/gurukishore/.gradle/caches/transforms-3/4ef803ba34d31dcf48df123a27eb5d76/transformed/jetified-play-services-basement-17.0.0/AndroidManifest.xml:17:1-28:12
 MERGED from [androidx.fragment:fragment:1.1.0] /Users/gurukishore/.gradle/caches/transforms-3/0e0e1a382b52c0572988a1c50e96d2f7/transformed/fragment-1.1.0/AndroidManifest.xml:17:1-24:12
 MERGED from [androidx.viewpager:viewpager:1.0.0] /Users/gurukishore/.gradle/caches/transforms-3/045d2e69ed718df502093495707de7d0/transformed/viewpager-1.0.0/AndroidManifest.xml:17:1-22:12
 MERGED from [androidx.loader:loader:1.0.0] /Users/gurukishore/.gradle/caches/transforms-3/906f41b23948e23cf276f1b1ba5ed41e/transformed/loader-1.0.0/AndroidManifest.xml:17:1-22:12
@@ -56,12 +78,32 @@ uses-sdk
 INJECTED from /Users/gurukishore/Projects/Flutter/Flip/android/app/src/main/AndroidManifest.xml reason: use-sdk injection requested
 INJECTED from /Users/gurukishore/Projects/Flutter/Flip/android/app/src/main/AndroidManifest.xml
 INJECTED from /Users/gurukishore/Projects/Flutter/Flip/android/app/src/main/AndroidManifest.xml
+MERGED from [:shared_preferences_android] /Users/gurukishore/Projects/Flutter/Flip/build/shared_preferences_android/intermediates/merged_manifest/debug/AndroidManifest.xml:5:5-7:41
+MERGED from [:shared_preferences_android] /Users/gurukishore/Projects/Flutter/Flip/build/shared_preferences_android/intermediates/merged_manifest/debug/AndroidManifest.xml:5:5-7:41
+MERGED from [:file_picker] /Users/gurukishore/Projects/Flutter/Flip/build/file_picker/intermediates/merged_manifest/debug/AndroidManifest.xml:5:5-7:41
+MERGED from [:file_picker] /Users/gurukishore/Projects/Flutter/Flip/build/file_picker/intermediates/merged_manifest/debug/AndroidManifest.xml:5:5-7:41
+MERGED from [:flutter_plugin_android_lifecycle] /Users/gurukishore/Projects/Flutter/Flip/build/flutter_plugin_android_lifecycle/intermediates/merged_manifest/debug/AndroidManifest.xml:5:5-7:41
+MERGED from [:flutter_plugin_android_lifecycle] /Users/gurukishore/Projects/Flutter/Flip/build/flutter_plugin_android_lifecycle/intermediates/merged_manifest/debug/AndroidManifest.xml:5:5-7:41
 MERGED from [:path_provider_android] /Users/gurukishore/Projects/Flutter/Flip/build/path_provider_android/intermediates/merged_manifest/debug/AndroidManifest.xml:5:5-7:41
 MERGED from [:path_provider_android] /Users/gurukishore/Projects/Flutter/Flip/build/path_provider_android/intermediates/merged_manifest/debug/AndroidManifest.xml:5:5-7:41
+MERGED from [:pay_android] /Users/gurukishore/Projects/Flutter/Flip/build/pay_android/intermediates/merged_manifest/debug/AndroidManifest.xml:9:5-11:41
+MERGED from [:pay_android] /Users/gurukishore/Projects/Flutter/Flip/build/pay_android/intermediates/merged_manifest/debug/AndroidManifest.xml:9:5-11:41
 MERGED from [androidx.window:window-java:1.0.0-beta04] /Users/gurukishore/.gradle/caches/transforms-3/246793f755122fe14a5802655438cb75/transformed/jetified-window-java-1.0.0-beta04/AndroidManifest.xml:19:5-21:41
 MERGED from [androidx.window:window-java:1.0.0-beta04] /Users/gurukishore/.gradle/caches/transforms-3/246793f755122fe14a5802655438cb75/transformed/jetified-window-java-1.0.0-beta04/AndroidManifest.xml:19:5-21:41
 MERGED from [androidx.window:window:1.0.0-beta04] /Users/gurukishore/.gradle/caches/transforms-3/49bc944d29f70d45aa5add8e43e3247e/transformed/jetified-window-1.0.0-beta04/AndroidManifest.xml:20:5-22:41
 MERGED from [androidx.window:window:1.0.0-beta04] /Users/gurukishore/.gradle/caches/transforms-3/49bc944d29f70d45aa5add8e43e3247e/transformed/jetified-window-1.0.0-beta04/AndroidManifest.xml:20:5-22:41
+MERGED from [com.google.android.gms:play-services-wallet:18.1.2] /Users/gurukishore/.gradle/caches/transforms-3/81a0c4259db5698ca7f8a7935112d267/transformed/jetified-play-services-wallet-18.1.2/AndroidManifest.xml:20:5-44
+MERGED from [com.google.android.gms:play-services-wallet:18.1.2] /Users/gurukishore/.gradle/caches/transforms-3/81a0c4259db5698ca7f8a7935112d267/transformed/jetified-play-services-wallet-18.1.2/AndroidManifest.xml:20:5-44
+MERGED from [com.google.android.gms:play-services-identity:17.0.0] /Users/gurukishore/.gradle/caches/transforms-3/6ac5772983d7c38fc7ee30657f28c661/transformed/jetified-play-services-identity-17.0.0/AndroidManifest.xml:20:5-44
+MERGED from [com.google.android.gms:play-services-identity:17.0.0] /Users/gurukishore/.gradle/caches/transforms-3/6ac5772983d7c38fc7ee30657f28c661/transformed/jetified-play-services-identity-17.0.0/AndroidManifest.xml:20:5-44
+MERGED from [com.google.android.gms:play-services-maps:17.0.0] /Users/gurukishore/.gradle/caches/transforms-3/e115828bd46a366924364d5397d53b25/transformed/jetified-play-services-maps-17.0.0/AndroidManifest.xml:20:5-44
+MERGED from [com.google.android.gms:play-services-maps:17.0.0] /Users/gurukishore/.gradle/caches/transforms-3/e115828bd46a366924364d5397d53b25/transformed/jetified-play-services-maps-17.0.0/AndroidManifest.xml:20:5-44
+MERGED from [com.google.android.gms:play-services-base:17.0.0] /Users/gurukishore/.gradle/caches/transforms-3/1ea967b797818d9badf6aaa0240ca184/transformed/jetified-play-services-base-17.0.0/AndroidManifest.xml:20:5-44
+MERGED from [com.google.android.gms:play-services-base:17.0.0] /Users/gurukishore/.gradle/caches/transforms-3/1ea967b797818d9badf6aaa0240ca184/transformed/jetified-play-services-base-17.0.0/AndroidManifest.xml:20:5-44
+MERGED from [com.google.android.gms:play-services-tasks:17.0.0] /Users/gurukishore/.gradle/caches/transforms-3/6c30e38738f1354a4bf3b93fb5510fa8/transformed/jetified-play-services-tasks-17.0.0/AndroidManifest.xml:5:5-44
+MERGED from [com.google.android.gms:play-services-tasks:17.0.0] /Users/gurukishore/.gradle/caches/transforms-3/6c30e38738f1354a4bf3b93fb5510fa8/transformed/jetified-play-services-tasks-17.0.0/AndroidManifest.xml:5:5-44
+MERGED from [com.google.android.gms:play-services-basement:17.0.0] /Users/gurukishore/.gradle/caches/transforms-3/4ef803ba34d31dcf48df123a27eb5d76/transformed/jetified-play-services-basement-17.0.0/AndroidManifest.xml:20:5-44
+MERGED from [com.google.android.gms:play-services-basement:17.0.0] /Users/gurukishore/.gradle/caches/transforms-3/4ef803ba34d31dcf48df123a27eb5d76/transformed/jetified-play-services-basement-17.0.0/AndroidManifest.xml:20:5-44
 MERGED from [androidx.fragment:fragment:1.1.0] /Users/gurukishore/.gradle/caches/transforms-3/0e0e1a382b52c0572988a1c50e96d2f7/transformed/fragment-1.1.0/AndroidManifest.xml:20:5-22:41
 MERGED from [androidx.fragment:fragment:1.1.0] /Users/gurukishore/.gradle/caches/transforms-3/0e0e1a382b52c0572988a1c50e96d2f7/transformed/fragment-1.1.0/AndroidManifest.xml:20:5-22:41
 MERGED from [androidx.viewpager:viewpager:1.0.0] /Users/gurukishore/.gradle/caches/transforms-3/045d2e69ed718df502093495707de7d0/transformed/viewpager-1.0.0/AndroidManifest.xml:20:5-44
@@ -102,8 +144,32 @@ INJECTED from /Users/gurukishore/Projects/Flutter/Flip/android/app/src/debug/And
 		INJECTED from /Users/gurukishore/Projects/Flutter/Flip/android/app/src/debug/AndroidManifest.xml
 uses-permission#android.permission.INTERNET
 ADDED from /Users/gurukishore/Projects/Flutter/Flip/android/app/src/debug/AndroidManifest.xml:7:5-66
+MERGED from [com.google.android.gms:play-services-maps:17.0.0] /Users/gurukishore/.gradle/caches/transforms-3/e115828bd46a366924364d5397d53b25/transformed/jetified-play-services-maps-17.0.0/AndroidManifest.xml:24:5-67
+MERGED from [com.google.android.gms:play-services-maps:17.0.0] /Users/gurukishore/.gradle/caches/transforms-3/e115828bd46a366924364d5397d53b25/transformed/jetified-play-services-maps-17.0.0/AndroidManifest.xml:24:5-67
 	android:name
 		ADDED from /Users/gurukishore/Projects/Flutter/Flip/android/app/src/debug/AndroidManifest.xml:7:22-64
+uses-permission#android.permission.READ_EXTERNAL_STORAGE
+ADDED from [:file_picker] /Users/gurukishore/Projects/Flutter/Flip/build/file_picker/intermediates/merged_manifest/debug/AndroidManifest.xml:9:5-80
+	android:name
+		ADDED from [:file_picker] /Users/gurukishore/Projects/Flutter/Flip/build/file_picker/intermediates/merged_manifest/debug/AndroidManifest.xml:9:22-77
+queries
+ADDED from [:file_picker] /Users/gurukishore/Projects/Flutter/Flip/build/file_picker/intermediates/merged_manifest/debug/AndroidManifest.xml:11:5-17:15
+intent#action:name:android.intent.action.GET_CONTENT+data:mimeType:*/*
+ADDED from [:file_picker] /Users/gurukishore/Projects/Flutter/Flip/build/file_picker/intermediates/merged_manifest/debug/AndroidManifest.xml:12:9-16:18
+action#android.intent.action.GET_CONTENT
+ADDED from [:file_picker] /Users/gurukishore/Projects/Flutter/Flip/build/file_picker/intermediates/merged_manifest/debug/AndroidManifest.xml:13:13-72
+	android:name
+		ADDED from [:file_picker] /Users/gurukishore/Projects/Flutter/Flip/build/file_picker/intermediates/merged_manifest/debug/AndroidManifest.xml:13:21-69
+data
+ADDED from [:file_picker] /Users/gurukishore/Projects/Flutter/Flip/build/file_picker/intermediates/merged_manifest/debug/AndroidManifest.xml:15:13-44
+	android:mimeType
+		ADDED from [:file_picker] /Users/gurukishore/Projects/Flutter/Flip/build/file_picker/intermediates/merged_manifest/debug/AndroidManifest.xml:15:19-41
+meta-data#com.google.android.gms.wallet.api.enabled
+ADDED from [:pay_android] /Users/gurukishore/Projects/Flutter/Flip/build/pay_android/intermediates/merged_manifest/debug/AndroidManifest.xml:14:9-16:36
+	android:value
+		ADDED from [:pay_android] /Users/gurukishore/Projects/Flutter/Flip/build/pay_android/intermediates/merged_manifest/debug/AndroidManifest.xml:16:13-33
+	android:name
+		ADDED from [:pay_android] /Users/gurukishore/Projects/Flutter/Flip/build/pay_android/intermediates/merged_manifest/debug/AndroidManifest.xml:15:13-69
 uses-library#androidx.window.extensions
 ADDED from [androidx.window:window:1.0.0-beta04] /Users/gurukishore/.gradle/caches/transforms-3/49bc944d29f70d45aa5add8e43e3247e/transformed/jetified-window-1.0.0-beta04/AndroidManifest.xml:25:9-27:40
 	android:required
@@ -116,3 +182,33 @@ ADDED from [androidx.window:window:1.0.0-beta04] /Users/gurukishore/.gradle/cach
 		ADDED from [androidx.window:window:1.0.0-beta04] /Users/gurukishore/.gradle/caches/transforms-3/49bc944d29f70d45aa5add8e43e3247e/transformed/jetified-window-1.0.0-beta04/AndroidManifest.xml:30:13-37
 	android:name
 		ADDED from [androidx.window:window:1.0.0-beta04] /Users/gurukishore/.gradle/caches/transforms-3/49bc944d29f70d45aa5add8e43e3247e/transformed/jetified-window-1.0.0-beta04/AndroidManifest.xml:29:13-51
+uses-permission#android.permission.ACCESS_NETWORK_STATE
+ADDED from [com.google.android.gms:play-services-maps:17.0.0] /Users/gurukishore/.gradle/caches/transforms-3/e115828bd46a366924364d5397d53b25/transformed/jetified-play-services-maps-17.0.0/AndroidManifest.xml:23:5-79
+	android:name
+		ADDED from [com.google.android.gms:play-services-maps:17.0.0] /Users/gurukishore/.gradle/caches/transforms-3/e115828bd46a366924364d5397d53b25/transformed/jetified-play-services-maps-17.0.0/AndroidManifest.xml:23:22-76
+uses-feature#0x00020000
+ADDED from [com.google.android.gms:play-services-maps:17.0.0] /Users/gurukishore/.gradle/caches/transforms-3/e115828bd46a366924364d5397d53b25/transformed/jetified-play-services-maps-17.0.0/AndroidManifest.xml:26:5-28:35
+	android:glEsVersion
+		ADDED from [com.google.android.gms:play-services-maps:17.0.0] /Users/gurukishore/.gradle/caches/transforms-3/e115828bd46a366924364d5397d53b25/transformed/jetified-play-services-maps-17.0.0/AndroidManifest.xml:27:9-41
+	android:required
+		ADDED from [com.google.android.gms:play-services-maps:17.0.0] /Users/gurukishore/.gradle/caches/transforms-3/e115828bd46a366924364d5397d53b25/transformed/jetified-play-services-maps-17.0.0/AndroidManifest.xml:28:9-32
+uses-library#org.apache.http.legacy
+ADDED from [com.google.android.gms:play-services-maps:17.0.0] /Users/gurukishore/.gradle/caches/transforms-3/e115828bd46a366924364d5397d53b25/transformed/jetified-play-services-maps-17.0.0/AndroidManifest.xml:33:9-35:40
+	android:required
+		ADDED from [com.google.android.gms:play-services-maps:17.0.0] /Users/gurukishore/.gradle/caches/transforms-3/e115828bd46a366924364d5397d53b25/transformed/jetified-play-services-maps-17.0.0/AndroidManifest.xml:35:13-37
+	android:name
+		ADDED from [com.google.android.gms:play-services-maps:17.0.0] /Users/gurukishore/.gradle/caches/transforms-3/e115828bd46a366924364d5397d53b25/transformed/jetified-play-services-maps-17.0.0/AndroidManifest.xml:34:13-50
+activity#com.google.android.gms.common.api.GoogleApiActivity
+ADDED from [com.google.android.gms:play-services-base:17.0.0] /Users/gurukishore/.gradle/caches/transforms-3/1ea967b797818d9badf6aaa0240ca184/transformed/jetified-play-services-base-17.0.0/AndroidManifest.xml:23:9-26:75
+	android:exported
+		ADDED from [com.google.android.gms:play-services-base:17.0.0] /Users/gurukishore/.gradle/caches/transforms-3/1ea967b797818d9badf6aaa0240ca184/transformed/jetified-play-services-base-17.0.0/AndroidManifest.xml:25:13-37
+	android:theme
+		ADDED from [com.google.android.gms:play-services-base:17.0.0] /Users/gurukishore/.gradle/caches/transforms-3/1ea967b797818d9badf6aaa0240ca184/transformed/jetified-play-services-base-17.0.0/AndroidManifest.xml:26:13-72
+	android:name
+		ADDED from [com.google.android.gms:play-services-base:17.0.0] /Users/gurukishore/.gradle/caches/transforms-3/1ea967b797818d9badf6aaa0240ca184/transformed/jetified-play-services-base-17.0.0/AndroidManifest.xml:24:13-79
+meta-data#com.google.android.gms.version
+ADDED from [com.google.android.gms:play-services-basement:17.0.0] /Users/gurukishore/.gradle/caches/transforms-3/4ef803ba34d31dcf48df123a27eb5d76/transformed/jetified-play-services-basement-17.0.0/AndroidManifest.xml:23:9-25:69
+	android:value
+		ADDED from [com.google.android.gms:play-services-basement:17.0.0] /Users/gurukishore/.gradle/caches/transforms-3/4ef803ba34d31dcf48df123a27eb5d76/transformed/jetified-play-services-basement-17.0.0/AndroidManifest.xml:25:13-66
+	android:name
+		ADDED from [com.google.android.gms:play-services-basement:17.0.0] /Users/gurukishore/.gradle/caches/transforms-3/4ef803ba34d31dcf48df123a27eb5d76/transformed/jetified-play-services-basement-17.0.0/AndroidManifest.xml:24:13-58

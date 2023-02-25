@@ -6,6 +6,7 @@ import 'package:flip/models/Product.dart';
 import 'package:flip/screens/ProductDetailsScreen.dart';
 import 'package:flip/services/product.dart';
 import 'package:flutter/material.dart';
+import 'package:lottie/lottie.dart';
 
 class CategoryDealsScreen extends StatefulWidget {
   static const String routeName = '/category-deals';
@@ -37,7 +38,6 @@ class _CategoryDealsScreenState extends State<CategoryDealsScreen> {
 
   @override
   void dispose() {
-    // TODO: implement dispose
     super.dispose();
     products = null;
   }
@@ -80,9 +80,12 @@ class _CategoryDealsScreenState extends State<CategoryDealsScreen> {
                   const SizedBox(
                     height: 20,
                   ),
-                  const Icon(
-                    Icons.description_rounded,
-                    size: 110,
+                  Lottie.asset(
+                    'assets/lottie/not_founded.json',
+                    width: 200,
+                    height: 200,
+                    fit: BoxFit.fill,
+                    repeat: false,
                   ),
                   const SizedBox(
                     height: 20,

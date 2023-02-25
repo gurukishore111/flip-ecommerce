@@ -21,13 +21,18 @@ class _CartScreenState extends State<CartScreen> {
     Navigator.pushNamed(context, SearchScreen.routeName, arguments: query);
   }
 
-  void navigateToAddressScreen() {
-    Navigator.pushNamed(context, AddressScreen.routeName);
+  void navigateToAddressScreen(int sum) {
+    Navigator.pushNamed(context, AddressScreen.routeName,
+        arguments: sum.toString());
   }
 
   @override
   Widget build(BuildContext context) {
     final user = Provider.of<UserProvider>(context).user;
+    int sum = 0;
+    user.cart
+        .map((e) => sum += e['quantity'] * e['product']['price'] as int)
+        .toList();
 
     return Scaffold(
       appBar: PreferredSize(
@@ -111,7 +116,7 @@ class _CartScreenState extends State<CartScreen> {
               padding: const EdgeInsets.all(9.0),
               child: CustomButton(
                 text: 'Proceed to Buy (${user.cart.length} items)',
-                onTap: () => navigateToAddressScreen(),
+                onTap: () => navigateToAddressScreen(sum),
                 color: Colors.yellow[700],
               ),
             ),
