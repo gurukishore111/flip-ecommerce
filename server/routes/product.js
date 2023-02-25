@@ -30,9 +30,7 @@ productRouter.post('/rating', auth, async (req, res) => {
     res.json(product);
   } catch (error) {
     res.status(500).json({
-      error: error?.message
-        ? error.message
-        : 'Something went wrong while creating the account',
+      error: error?.message ? error.message : ' Something went wrong ',
     });
   }
 });
@@ -45,9 +43,7 @@ productRouter.get('/:category', auth, async (req, res) => {
     res.json(product);
   } catch (error) {
     res.status(500).json({
-      error: error?.message
-        ? error.message
-        : 'Something went wrong while creating the account',
+      error: error?.message ? error.message : ' Something went wrong ',
     });
   }
 });
@@ -77,9 +73,7 @@ productRouter.get('/deal/deal-of-day', auth, async (req, res) => {
     }
   } catch (error) {
     res.status(500).json({
-      error: error?.message
-        ? error.message
-        : 'Something went wrong while creating the account',
+      error: error?.message ? error.message : ' Something went wrong ',
     });
   }
 });
@@ -100,9 +94,7 @@ productRouter.get('/search/:query', auth, async (req, res) => {
     res.json(product);
   } catch (error) {
     res.status(500).json({
-      error: error?.message
-        ? error.message
-        : 'Something went wrong while creating the account',
+      error: error?.message ? error.message : ' Something went wrong ',
     });
   }
 });
@@ -122,9 +114,7 @@ productRouter.delete('/rating/:id', auth, async (req, res) => {
     res.json(product);
   } catch (error) {
     res.status(500).json({
-      error: error?.message
-        ? error.message
-        : 'Something went wrong while creating the account',
+      error: error?.message ? error.message : ' Something went wrong ',
     });
   }
 });
@@ -142,9 +132,7 @@ productRouter.get('/product/:id', auth, async (req, res) => {
     }
   } catch (error) {
     res.status(500).json({
-      error: error?.message
-        ? error.message
-        : 'Something went wrong while creating the account',
+      error: error?.message ? error.message : ' Something went wrong ',
     });
   }
 });

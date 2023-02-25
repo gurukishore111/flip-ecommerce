@@ -5,8 +5,11 @@ const adminRouter = require('./routes/admin');
 const productRouter = require('./routes/product');
 const userRouter = require('./routes/user');
 const app = express();
+const morgan = require('morgan');
+
 require('dotenv').config();
 app.use(express.json());
+app.use(morgan('tiny'));
 
 const PORT = 8000;
 

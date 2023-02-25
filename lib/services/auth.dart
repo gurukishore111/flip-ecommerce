@@ -118,4 +118,67 @@ class AuthService {
       showSnackBar(context!, e.toString());
     }
   }
+
+  Future<void> saveUserAddress({
+    required BuildContext context,
+    required String address,
+  }) async {
+    final userProvider = Provider.of<UserProvider>(context, listen: false);
+    try {
+      http.Response response = await http.post(
+        Uri.parse('$uri/user/save-address/'),
+        body: jsonEncode({'address': address}),
+        headers: <String, String>{
+          'Content-Type': "application/json; charset=UTF-8",
+          "x-auth-token": userProvider.user.token
+        },
+      );
+      httpErrorHandler(
+          response: response,
+          context: context,
+          onSuccess: () {
+            User user = userProvider.user.copyWith(
+              address: jsonDecode(response.body)['address'],
+            );
+            userProvider.setUserFromModal(user);
+          });
+    } catch (e) {
+      showSnackBar(context, e.toString());
+    }
+  }
+
+  Future<void> placeOrder({
+    required BuildContext context,
+    required String address,
+    required double totalSum,
+  }) async {
+    final userProvider = Provider.of<UserProvider>(context, listen: false);
+    try {
+      http.Response response = await http.post(
+        Uri.parse('$uri/user/order/'),
+        body: jsonEncode({
+          'cart': userProvider.user.cart,
+          'address': address,
+          'totalPrice': totalSum
+        }),
+        headers: <String, String>{
+          'Content-Type': "application/json; charset=UTF-8",
+          "x-auth-token": userProvider.user.token
+        },
+      );
+      httpErrorHandler(
+          response: response,
+          context: context,
+          onSuccess: () {
+            showSnackBar(context, 'Your order has been placed!');
+            User user = userProvider.user.copyWith(
+              cart: [],
+            );
+            userProvider.setUserFromModal(user);
+            Navigator.of(context).pop();
+          });
+    } catch (e) {
+      showSnackBar(context, e.toString());
+    }
+  }
 }

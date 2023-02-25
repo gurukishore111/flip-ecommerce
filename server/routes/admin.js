@@ -19,9 +19,7 @@ adminRouter.post('/add-product', admin, async (req, res) => {
     res.json(product);
   } catch (error) {
     res.status(500).json({
-      error: error?.message
-        ? error.message
-        : 'Something went wrong while creating the account',
+      error: error?.message ? error.message : ' Something went wrong ',
     });
   }
 });
@@ -33,9 +31,7 @@ adminRouter.get('/products', admin, async (req, res) => {
     res.json(product);
   } catch (error) {
     res.status(500).json({
-      error: error?.message
-        ? error.message
-        : 'Something went wrong while creating the account',
+      error: error?.message ? error.message : ' Something went wrong ',
     });
   }
 });
@@ -52,9 +48,7 @@ adminRouter.delete('/product/:id', admin, async (req, res) => {
     }
   } catch (error) {
     res.status(500).json({
-      error: error?.message
-        ? error.message
-        : 'Something went wrong while creating the account',
+      error: error?.message ? error.message : ' Something went wrong ',
     });
   }
 });

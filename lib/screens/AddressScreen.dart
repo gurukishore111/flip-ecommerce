@@ -3,6 +3,7 @@ import 'package:flip/components/Common/CustomTextField.dart';
 import 'package:flip/components/Common/SnackBar.dart';
 import 'package:flip/constants/global_variables.dart';
 import 'package:flip/providers/user.dart';
+import 'package:flip/services/auth.dart';
 import 'package:flutter/material.dart';
 import 'package:pay/pay.dart';
 import 'package:provider/provider.dart';
@@ -24,6 +25,7 @@ class _AddressScreenState extends State<AddressScreen> {
   final _addressFormKey = GlobalKey<FormState>();
   String addressToBeUsed = '';
   List<PaymentItem> paymentItems = [];
+  final AuthService userService = AuthService();
 
   @override
   void initState() {
@@ -46,11 +48,31 @@ class _AddressScreenState extends State<AddressScreen> {
   }
 
   void onApplePayResult(result) {
-    print(result);
+    if (Provider.of<UserProvider>(context, listen: false)
+        .user
+        .address
+        .isEmpty) {
+      userService.saveUserAddress(context: context, address: addressToBeUsed);
+    }
+    userService.placeOrder(
+      context: context,
+      address: addressToBeUsed,
+      totalSum: double.parse(widget.totalAmount.toString()),
+    );
   }
 
   void onGPayResult(result) {
-    print(result);
+    if (Provider.of<UserProvider>(context, listen: false)
+        .user
+        .address
+        .isEmpty) {
+      userService.saveUserAddress(context: context, address: addressToBeUsed);
+    }
+    userService.placeOrder(
+      context: context,
+      address: addressToBeUsed,
+      totalSum: double.parse(widget.totalAmount.toString()),
+    );
   }
 
   void payPressed(String addressFromProvider) {
@@ -72,15 +94,14 @@ class _AddressScreenState extends State<AddressScreen> {
       addressToBeUsed = addressFromProvider;
     } else {
       showSnackBar(context, 'Address not vaild!');
+      throw Exception('Please enter all the values!');
     }
     print(addressToBeUsed);
   }
 
   @override
   Widget build(BuildContext context) {
-    // Provider.of<UserProvider>(context).user.address
-    var address = "101,Fake address";
-
+    var address = Provider.of<UserProvider>(context).user.address;
     return Scaffold(
       appBar: PreferredSize(
         preferredSize: const Size.fromHeight(50),
@@ -109,7 +130,7 @@ class _AddressScreenState extends State<AddressScreen> {
                       width: double.infinity,
                       decoration: BoxDecoration(
                         border: Border.all(
-                          color: Colors.black26,
+                          color: Colors.grey,
                         ),
                       ),
                       child: Padding(

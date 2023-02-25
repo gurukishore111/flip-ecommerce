@@ -22,9 +22,7 @@ authRouter.post('/signup', async (req, res) => {
     res.json(user);
   } catch (error) {
     res.status(500).json({
-      error: error?.message
-        ? error.message
-        : 'Something went wrong while creating the account',
+      error: error?.message ? error.message : ' Something went wrong ',
     });
   }
 });
@@ -43,9 +41,7 @@ authRouter.post('/signin', async (req, res) => {
     }
   } catch (error) {
     res.status(500).json({
-      error: error?.message
-        ? error.message
-        : 'Something went wrong while creating the account',
+      error: error?.message ? error.message : ' Something went wrong ',
     });
   }
 });
@@ -61,9 +57,7 @@ authRouter.post('/token', async (req, res) => {
     res.json(true);
   } catch (error) {
     res.status(500).json({
-      error: error?.message
-        ? error.message
-        : 'Something went wrong while creating the account',
+      error: error?.message ? error.message : ' Something went wrong ',
     });
   }
 });
@@ -75,9 +69,7 @@ authRouter.get('/', auth, async (req, res) => {
     res.json({ ...user._doc, token: req.token });
   } catch (error) {
     res.status(500).json({
-      error: error?.message
-        ? error.message
-        : 'Something went wrong while creating the account',
+      error: error?.message ? error.message : ' Something went wrong ',
     });
   }
 });
