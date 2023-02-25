@@ -4,6 +4,23 @@
             "outputFile": "/Users/gurukishore/Projects/Flutter/Flip/build/app/intermediates/incremental/mergeDebugResources/merged.dir/values-en-rIN/values-en-rIN.xml",
             "map": [
                 {
+                    "source": "/Users/gurukishore/.gradle/caches/transforms-3/81a0c4259db5698ca7f8a7935112d267/transformed/jetified-play-services-wallet-18.1.2/res/values-en-rIN/values.xml",
+                    "from": {
+                        "startLines": "4",
+                        "startColumns": "0",
+                        "startOffsets": "206",
+                        "endColumns": "99",
+                        "endOffsets": "305"
+                    },
+                    "to": {
+                        "startLines": "3",
+                        "startColumns": "4",
+                        "startOffsets": "156",
+                        "endColumns": "103",
+                        "endOffsets": "255"
+                    }
+                },
+                {
                     "source": "/Users/gurukishore/.gradle/caches/transforms-3/acbce933e4b464a5224ed377a62db1f5/transformed/core-1.6.0/res/values-en-rIN/values-en-rIN.xml",
                     "from": {
                         "startLines": "2",
