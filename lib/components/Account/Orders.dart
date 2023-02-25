@@ -2,6 +2,7 @@ import 'package:flip/components/Common/Loader.dart';
 import 'package:flip/components/Common/Product.dart';
 import 'package:flip/constants/global_variables.dart';
 import 'package:flip/models/Order.dart';
+import 'package:flip/screens/OrderDetails.dart';
 import 'package:flip/services/order.dart';
 import 'package:flutter/material.dart';
 
@@ -26,6 +27,10 @@ class _OrdersState extends State<Orders> {
   void fetchOrders() async {
     orders = await orderServices.fetchMyOrder(context: context);
     setState(() {});
+  }
+
+  void navigateToOrderDetails(Order order) {
+    Navigator.pushNamed(context, OrderDetailScreen.routeName, arguments: order);
   }
 
   @override
@@ -62,8 +67,11 @@ class _OrdersState extends State<Orders> {
                     scrollDirection: Axis.horizontal,
                     itemCount: orders!.length,
                     itemBuilder: ((context, index) {
-                      return Product(
-                          image: orders![index].products[0].images[0]);
+                      return InkWell(
+                        onTap: () => navigateToOrderDetails(orders![index]),
+                        child: Product(
+                            image: orders![index].products[0].images[0]),
+                      );
                     })),
               )
             ],

@@ -5,6 +5,7 @@ import 'package:flip/constants/global_variables.dart';
 import 'package:flip/helpers/error_handing.dart';
 import 'package:flip/models/User.dart';
 import 'package:flip/providers/user.dart';
+import 'package:flip/screens/AuthScreen.dart';
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
 import 'package:provider/provider.dart';
@@ -177,6 +178,21 @@ class AuthService {
             userProvider.setUserFromModal(user);
             Navigator.of(context).pop();
           });
+    } catch (e) {
+      showSnackBar(context, e.toString());
+    }
+  }
+
+  void logOut(BuildContext context) async {
+    try {
+      SharedPreferences sharedPreferences =
+          await SharedPreferences.getInstance();
+      await sharedPreferences.setString('x-auth-token', '');
+      Navigator.pushNamedAndRemoveUntil(
+        context,
+        AuthScreen.routeName,
+        (route) => false,
+      );
     } catch (e) {
       showSnackBar(context, e.toString());
     }

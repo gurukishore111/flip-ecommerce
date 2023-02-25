@@ -2,7 +2,9 @@ import 'package:badges/badges.dart';
 import 'package:flip/constants/global_variables.dart';
 import 'package:flip/screens/AccountScreen.dart';
 import 'package:flip/screens/AdminScreen.dart';
+import 'package:flip/screens/AnalyticsScreen.dart';
 import 'package:flip/screens/HomeScreen.dart';
+import 'package:flip/screens/OrdersScreen.dart';
 import 'package:flutter/material.dart';
 
 class AdminBottomNav extends StatefulWidget {
@@ -20,8 +22,8 @@ class _AdminBottomNavState extends State<AdminBottomNav> {
 
   List<Widget> pages = [
     const AdminScreen(),
-    const Center(child: Text("Analytics Screen")),
-    const Center(child: Text("Cart Screen")),
+    const AnalyticsScreen(),
+    const OrdersScreen(),
   ];
 
   void updatePage(int page) {

@@ -1,4 +1,5 @@
 import 'package:flip/components/Common/BotttomNav.dart';
+import 'package:flip/models/Order.dart';
 import 'package:flip/models/Product.dart';
 import 'package:flip/screens/AddProductScreen.dart';
 import 'package:flip/screens/AddressScreen.dart';
@@ -6,6 +7,7 @@ import 'package:flip/screens/AuthScreen.dart';
 import 'package:flip/screens/CategoryDeals.dart';
 import 'package:flip/screens/HomeScreen.dart';
 import 'package:flip/screens/NotFound.dart';
+import 'package:flip/screens/OrderDetails.dart';
 import 'package:flip/screens/ProductDetailsScreen.dart';
 import 'package:flip/screens/SearchScreen.dart';
 import 'package:flutter/material.dart';
@@ -53,6 +55,14 @@ Route<dynamic> generateRoute(RouteSettings routeSettings) {
       var totalAmount = routeSettings.arguments as String;
       return MaterialPageRoute(
         builder: (_) => AddressScreen(totalAmount: totalAmount),
+      );
+    case OrderDetailScreen.routeName:
+      var order = routeSettings.arguments as Order;
+      return MaterialPageRoute(
+        settings: routeSettings,
+        builder: (_) => OrderDetailScreen(
+          order: order,
+        ),
       );
     default:
       return MaterialPageRoute(
