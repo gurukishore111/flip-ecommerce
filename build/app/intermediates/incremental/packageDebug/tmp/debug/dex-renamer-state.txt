@@ -1,4 +1,0 @@
-#Sat Feb 25 12:51:21 IST 2023
-base.0=/Users/gurukishore/Projects/Flutter/Flip/build/app/intermediates/dex/debug/mergeDexDebug/classes.dex
-renamed.0=classes.dex
-path.0=classes.dex
